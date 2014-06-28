@@ -1,0 +1,289 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fullpage}
+\usepackage{enumerate}
+
+\title{CS 70, Summer 2014 --- Homework 1} % Put the correct homework number here.
+\author{Harsimran (Sammy) Sidhu, SID 23796591} % Put your name and student ID here.
+
+\begin{document}
+
+\maketitle
+
+Collaboraters: None
+
+Sources: None
+
+\section*{Problem 1} % Put the correct problem number here
+
+\begin{enumerate}[(a)]
+
+\item
+\begin{table}[h] 
+\caption{$P\wedge (Q\vee P) \equiv P \wedge Q$} % title of Table 
+\centering % used for centering table 
+\begin{tabular}{c c c c c} % centered columns (4 columns) 
+\hline %inserts double horizontal lines 
+$P$ & $Q$ & $Q\vee{P}$ & $P\wedge{(Q\vee P)}$ & $P\wedge Q$ \\ % inserts table 
+%heading 
+\hline % inserts single horizontal line 
+T & T & T & T & T \\
+T & F & T & T & F \\
+F & T & T & F & F \\
+F & F & F & F & F \\ % [1ex] adds vertical space 
+\hline %inserts single line 
+\end{tabular} 
+\label{table:1a} % is used to refer this table in the text 
+\end{table}
+
+$Not~Equivalent$
+
+
+\item 
+
+\begin{table}[h] 
+\caption{$(P\Rightarrow Q)\Rightarrow R \equiv P\Rightarrow (Q\Rightarrow R)$} % title of Table 
+\centering % used for centering table 
+\begin{tabular}{c c c c c c c} % centered columns 
+\hline %inserts double horizontal lines 
+$P$ & $Q$ & $R$ \vline & $(P\Rightarrow Q)$ \vline & $(P\Rightarrow Q)\Rightarrow R$ \vline & $P\Rightarrow (Q\Rightarrow R)$ \vline & $(Q\Rightarrow R)$ \\ % inserts table 
+%heading 
+\hline % inserts single horizontal line 
+T & T & T & T & T & T & T\\
+T & T & F & T & F & F & F\\
+T & F & T & F & T & T & T\\
+T & F & F & F & T & T & T\\
+F & F & F & T & F & T & T\\
+F & F & T & T & T & T & T\\
+F & T & F & T & F & T & F\\
+F & T & T & T & T & T & T\\
+\hline %inserts single line 
+\end{tabular} 
+\label{table:1a} % is used to refer this table in the text 
+\end{table}
+
+$Not~Equivalent$
+\clearpage
+\item 
+\begin{table}[h] 
+\caption{$(P\Rightarrow Q)\Rightarrow (P\Rightarrow R) \equiv P\Rightarrow (Q\Rightarrow R)$} % title of Table 
+\centering % used for centering table 
+\begin{tabular}{c c c c c c c c} % centered columns 
+\hline %inserts double horizontal lines 
+$P$ & $Q$ & $R$ \vline & $(P\Rightarrow Q)$ \vline & $(P\Rightarrow R)$ \vline & $(P\Rightarrow Q)\Rightarrow (P\Rightarrow R)$ \vline & $(Q\Rightarrow R)$ \vline & $P\Rightarrow (Q\Rightarrow R)$\\ % inserts table 
+%heading 
+\hline % inserts single horizontal line 
+T & T & T & T & T & T & T & T\\
+T & T & F & T & F & F & F & F\\
+T & F & T & F & T & T & T & T\\
+T & F & F & F & F & T & T & T\\
+F & F & F & T & T & T & T & T\\
+F & F & T & T & T & T & T & T\\
+F & T & F & T & T & T & F & T\\
+F & T & T & T & T & T & T & T\\
+\hline %inserts single line 
+\end{tabular} 
+\label{table:1a} % is used to refer this table in the text 
+\end{table}
+$Equivalent$
+
+\item
+
+\begin{table}[h] 
+\caption{$(P\wedge\neg Q)\Leftrightarrow (\neg P\vee Q)\equiv (Q\wedge \neg P)\Leftrightarrow (\neg Q \vee P)$} % title of Table 
+\centering % used for centering table 
+\begin{tabular}{c c c c c c c c} % centered columns 
+\hline %inserts double horizontal lines 
+$P$ & $Q$ \vline & $(P\wedge\neg Q)$ \vline & $(\neg P\vee Q)$ \vline & $(P\wedge\neg Q)\Leftrightarrow (\neg P\vee Q)$ \vline & $(Q\wedge \neg P)$ \vline & $(\neg Q \vee P)$ \vline & $(Q\wedge \neg P)\Leftrightarrow (\neg Q \vee P)$\\ % inserts table 
+%heading 
+\hline % inserts single horizontal line 
+T & T & F & T & F & F & T & F \\
+T & F & T & F & F & F & T & F \\
+F & T & F & T & F & T & F & F \\
+F & F & F & T & F & F & T & F \\
+
+\hline %inserts single line 
+\end{tabular} 
+\label{table:1a} % is used to refer this table in the text 
+\end{table}
+$Equivalent$
+
+\end{enumerate}
+
+\newpage
+
+\section*{Problem 2}
+
+\begin{enumerate}[(a)]
+%2a
+\item
+\begin{enumerate}[(I)]
+\item
+$\forall x (P(x)\Rightarrow B(x))$
+\item
+$\forall x (U(x)\Rightarrow \neg F(x))$
+\item
+$\forall x (O(x)\Rightarrow N(x))$
+\item
+$\forall x (B(x)\Rightarrow F(x))$
+\item
+$\forall x (K(x)\Rightarrow P(x))$
+\item
+$\forall x (N(x)\Rightarrow U(x))$
+\end{enumerate}
+
+%2b
+\item
+\begin{enumerate}[(I)]
+\item
+$\forall x (\neg B(x)\Rightarrow \neg P(x))$
+\item
+$\forall x (F(x)\Rightarrow \neg U(x))$
+\item
+$\forall x (\neg N(x)\Rightarrow \neg O(x))$
+\item
+$\forall x (\neg F(x)\Rightarrow \neg B(x))$
+\item
+$\forall x (\neg P(x)\Rightarrow \neg K(x))$
+\item
+$\forall x (\neg U(x)\Rightarrow \neg N(x))$
+\end{enumerate}
+
+%2c
+\item
+If a person wears kid gloves, they go to a party, brush their hair, look fascinating, are tidy, have self control, and aren't opium-eaters.
+
+$\forall x (K(x)\Rightarrow P(x)\Rightarrow B(x)\Rightarrow F(x)\Rightarrow \neg U(x)\Rightarrow \neg N(x)\Rightarrow \neg O(x))$
+
+
+\end{enumerate}
+
+\clearpage
+\section*{Problem 3}
+
+\begin{enumerate}[(a)]
+%3a
+\item $\forall x \exists y ~(xy\geq x^2)$ True\\
+$Case~0: x = 0 \rightarrow 0\geq 0$\\
+$Case~1: \forall x\in \mathbb{R}^{+}~\exists y
+~((y\geq x)\Rightarrow (xy\geq x^2))$\\
+$Case~2: \forall x\in \mathbb{R}^{-}~\exists y
+~((y\leq x)\Rightarrow (xy\geq x^2))$
+%3b
+\item $\exists y\forall x ~(xy\geq x^2)$ False\\
+$\forall x\in\mathbb{R}~(x^2\geq 0)\\
+Case~0: y=0,\forall x~((x\neq0)\wedge(0 < x^2))\Rightarrow\neg(xy\geq x^2)~ \\
+Case~1: \exists y\in\mathbb{R}^+~\forall x\
+((x<0)\Rightarrow (xy < 0)\Rightarrow\neg(xy\geq x^2))\\
+Case~2: \exists y\in\mathbb{R}^-~\forall x\
+((x>0)\Rightarrow (xy <0)\Rightarrow\neg(xy\geq x^2))\\$
+%3c
+\item $\neg\forall x\exists y~ (xy>0\Rightarrow y>0)$ False\\
+$\neg\forall x\exists y~(\neg(xy>0)\vee(y>0))\\
+\exists x\forall y~ \neg(\neg(xy>0)\vee(y>0))\\
+\exists x\forall y~ ((xy>0)\wedge\neg(y>0))\\
+\exists x\forall y~ ((xy>0)\wedge(y\leq0))\\$
+\smallskip
+
+False whenever y is greater than 0 $(y>0)$ which shows that there isn't an x that can make this True for all y
+
+\end{enumerate}
+\clearpage
+
+\section*{Problem 4}
+
+\begin{enumerate}[(a)]
+%4a
+\item
+$\neg\forall x~\exists y~(P(x)\Rightarrow\neg Q(x,y)) \equiv \exists x~\forall y~(P(x)\wedge Q(x,y))$ \hfill Original Statement\\
+$\exists x~\forall y~\neg(P(x)\Rightarrow\neg Q(x,y)) \equiv$\hfill factor in negation\\
+$\exists x~\forall y~\neg(\neg P(x)\vee\neg Q(x,y)) \equiv$ \hfill Implication to Or\\
+$\exists x~\forall y(P(x)\wedge Q(x,y)) \equiv$ \hfill Demorgan's Law\\ 
+\\
+Equivalent
+%4b
+\item
+$\forall x~\exists y~(P(x)\Rightarrow Q(x,y)) \equiv \forall x~(P(x)\Rightarrow (\exists y~ Q(x,y)))$\hfill Original Statement\\
+$\forall x~\exists y~(\neg P(x)\vee Q(x,y)) \equiv$\hfill Implication to Or\\
+$\forall x~((\exists y~\neg P(x))\vee (\exists y~Q(x,y))) \equiv$\hfill Distribution of quantifier\\
+$\forall x~(\neg(\forall y~ P(x))\vee (\exists y~Q(x,y))) \equiv$\hfill Factor out negation\\
+$\forall x~((\forall y~ P(x))\Rightarrow (\exists y~Q(x,y))) \equiv$\hfill Or to Implication\\
+$\forall x~(P(x)\Rightarrow (\exists y~Q(x,y))) \equiv$ \hfill Obvious\\
+\\
+Equivalent
+%4c
+\item
+$\forall x~\exists y~(Q(x,y)\Rightarrow P(x)) \equiv \forall x~(\exists y~ Q(x,y)\Rightarrow P(x))$\hfill Original Statement\\
+$\forall x~\exists y~(\neg Q(x,y)\vee P(x)) \equiv$\hfill Implication to Or\\
+$\forall x~((\exists y~\neg Q(x,y))\vee (\exists y~ P(x))) \equiv$\hfill Distribution of quantifier\\
+$\forall x~(\neg(\forall y~ Q(x,y))\vee (\exists y~ P(x))) \equiv$\hfill Factor out negation\\
+$\forall x~((\forall y~ Q(x,y))\Rightarrow (\exists y~ P(x))) \equiv$\hfill Or to Implication\\
+$\forall x~((\forall y~ Q(x,y))\Rightarrow P(x)) \equiv$\hfill Obvious\\
+$\forall x~((\forall y~ Q(x,y))\Rightarrow P(x)) \not\equiv \forall x~(\exists y~ Q(x,y)\Rightarrow P(x))$\hfill Invalid\\
+\\
+Not Equivalent
+\end{enumerate}
+
+\clearpage
+
+\section*{Problem 5}
+\begin{enumerate}[(a)]
+%5a
+\item
+$\forall n\in\mathbb{N}~(n~odd \Rightarrow n^2 + 2n~odd)$\hfill Original Statement\\
+$Assume~n~is~odd\\
+\forall n\in\mathbb{N}~\exists k\in\mathbb{Z}~(n~odd\Rightarrow n=2k+1)$\hfill Definition of an odd number\\
+$\forall n\in\mathbb{N}~\exists d\in\mathbb{Z}~(n^2+2n = 2d+1 \Rightarrow n^2+2n~odd)\hfill n^2+2n$ is odd if d exists\\
+Substitution\\
+$(2k+1)^2 + 2(2k+1) = (4k^2 + 4k +1)+4k +2 = (4k^2 +8k + 2) + 1 = 2(2k^2 + 4k +1) + 1$\\
+$d=2k^2 +4k +1\hfill d$ Exists\\
+\\
+True, direct proof.
+\\
+%5b
+\item
+$\forall n\in\mathbb{N}~(n^2 +7n +1~odd)$\hfill Original Statement\\
+Case 1: $n~is~odd$\\
+$\forall n\in\mathbb{N}~\exists k\in\mathbb{Z}~(n~odd\Rightarrow n =2k+1)$ \hfill Definition of an odd number\\
+$\forall n\in\mathbb{N}~\exists d\in\mathbb{Z}~(n^2+7n+1 = 2d+1 \Rightarrow n^2+7n+1~odd)\hfill n^2+7n+1$ is odd if d exists\\
+Substitution\\
+$(2k+1)^2 + 7(2k+1) + 1 = (4k^2 + 18k +8) + 1 = 2(2k^2 + 9k + 4) + 1$\\
+$d = (2k^2 + 9k + 4)\hfill d$ Exists\\
+\\
+$Therefore~\forall n\in\mathbb{N}~(n~odd\Rightarrow n^2 +7n +1~odd)\hfill (n^2 +7n +1)$ is odd whenever n is odd\\
+
+Case 2: $n~is~even$\\
+$\forall n\in\mathbb{N}~\exists k\in\mathbb{Z}~(n~even\Rightarrow n =2k)$ \hfill Definition of an even number\\
+$\forall n\in\mathbb{N}~\exists d\in\mathbb{Z}~(n^2+7n+1 = 2d+1 \Rightarrow n^2+7n+1~odd)\hfill n^2+7n+1$ is odd if d exists\\
+Substitution\\
+$(2k)^2 + 7(2k) + 1 = (4k^2 + 14k) + 1 = 2(2k^2 + 7k) + 1$\\
+$d = (2k^2 + 7k)\hfill d$ Exists\\
+\\
+$Therefore~\forall n\in\mathbb{N}~(n~even\Rightarrow n^2 +7n +1~odd)\hfill (n^2 +7n +1)$ is odd whenever n is even\\
+\\
+True, Proof by Cases
+\\
+%5c
+\item
+$\forall ~a,b\in\mathbb{R}~(a+b\leq 10\Rightarrow (a\leq 7 \vee b\leq 3))$\hfill Original Statement\\
+$\forall ~a,b\in\mathbb{R}~(\neg(a\leq 7 \vee b\leq 3) \Rightarrow \neg(a+b\leq 10))$\hfill Contrapositive\\
+$\forall ~a,b\in\mathbb{R}~((\neg(a\leq 7) \wedge \neg(b\leq 3)) \Rightarrow \neg(a+b\leq 10))$\hfill Demorgan's Law\\
+$\forall ~a,b\in\mathbb{R}~(((a> 7) \wedge (b> 3)) \Rightarrow (a+b> 10))$\hfill Applied Negation\\
+\\
+True, Proof by Contrapositive
+\clearpage
+
+%5d
+\item
+$\forall r\in\mathbb{R}~(r~irrational\Rightarrow r+1~irrational)$\hfill Original Statement\\
+$Assume~\neg(r+1~irrational)\equiv (r+1~rational)$\\
+$\forall r\in\mathbb{R}~\exists~a,b\in\mathbb{Z}~(r+1~rational\Leftrightarrow r+1=\frac{a}{b})(b\neq 0)$\hfill definition of a rational number\\
+$r= \frac{a}{b}-1=\frac{a}{b}-\frac{b}{b}=\frac{a-b}{b}$\hfill Solving for $r$ which gives a rational number\\
+\\
+Assuming a false implication we have a contradiction that $r$ is both rational and irrational\\
+\\
+True, Proof by Contradiction
+\end{enumerate}
+\end{document}
+
