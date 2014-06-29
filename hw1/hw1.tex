@@ -295,15 +295,13 @@ False, Proof by Cases
 \end{enumerate}
 
 \clearpage
-
+\section*{Problem 6}
 \begin{enumerate}[(a)]
 %6a
 \item
-$\forall n\in\mathbb{N}~((n\geq 1)\Rightarrow\sum\limits_{i=1}^n\frac{1}{i(i+1)} = \dfrac{n}{n+1})$\hfill Original Statement\\
-$Proof: \sum\limits_{i=1}^n\frac{1}{i(i+1)} = \dfrac{n}{n+1} $\\
-\\
+$\forall n\geq 1~\sum\limits_{i=1}^n\frac{1}{i(i+1)} = \dfrac{n}{n+1}$\hfill Original Statement\\
 $Base~case:n=1\rightarrow\frac{1}{1(1+1)}=\frac{1}{1+1} = \frac{1}{2}$\hfill Valid\\
-$Inductive~ Hypothesis: \forall k\in\mathbb{N}~((k\geq 1)\Rightarrow\sum\limits_{i=1}^k\frac{1}{i(i+1)} = \frac{k}{k+1})$\\
+$Inductive~ Hypothesis: \forall k\geq 1~\sum\limits_{i=1}^k\frac{1}{i(i+1)} = \frac{k}{k+1}$\\
 $Let~ n=k+1\\
 \\
 \sum\limits_{i=1}^{k+1}\frac{1}{i(i+1)} = \frac{k+1}{(k+1)+1}$\hfill Substitute\\
@@ -323,7 +321,7 @@ $\frac{(k+1)}{(k+2)} =\frac{(k+1)}{(k+2)}$\hfill Valid\\
 %6b
 \item
 $\forall n\in\mathbb{N}~(5|(8^n - 3^n))$\hfill Original Statement\\
-$Proof: ~(5|(8^n - 3^n)$\\
+$Proof:~(5|(8^n - 3^n))$\\
 $Base~case:~(n=0)\rightarrow(5|(8^0-5^0))= (5|0)$\hfill Valid\\
 $Inductive~hypothesis:~\forall k\in\mathbb{N}~(5|(8^k - 3^k))$\\
 $let ~n =k+1$\\
@@ -340,6 +338,29 @@ $(5|(8\times 8^{k} - 3\times 3^{k}))= \exists d\in\mathbb{Z}~(5|5(8d + 3^{k}))$\
 \section*{Problem 7}
 
 \section*{Problem 8}
+\begin{enumerate}[(a)]
+\item
 
+$\forall c\geq 12~\exists(m,n)\in\mathbb{N}~(3m + 7n = c)~(c\geq 12)$\hfill Original Statement\\
+$m$ is the number of 3 cent coins and $n$ is the number of 7 cent coins\\
+$Base~Cases:$\\
+$(c=12)\rightarrow (m=4,n=0)\rightarrow (3(4) + 7(0) = 12)$\\
+$(c=13)\rightarrow (m=2,n=1)\rightarrow (3(2) + 7(1) = 13)$\hfill (m=m-2,~n=n+1)\\
+$(c=14)\rightarrow (m=0,n=2)\rightarrow (3(0) + 7(2) = 14)$\hfill (m=m-2,~n=n+1)\\
+$(c=15)\rightarrow (m=5,n=0)\rightarrow (3(5) + 7(0) = 15)$\hfill (m=m+5,~n=n-2)\\
+$Inductive~hypothesis:~\forall c\geq 12~\exists(m,n)\in\mathbb{N}~(3m + 7n = c)$\\
+$Inductive~Cases:$\\
+$Case~1:$\\
+If there is atleast two 3 cent coins $(m\geq2)$ then we can remove the two 3 cent coins and add a 7 cent coin to increment the cent count by 1\\ 
+\\
+$Case~2:$
+If there is atleast two 7 cent coins $(n\geq2)$ then we can remove the two 7 cent coins and add five 3 cent coins to increment the cent count by 1\\ 
+\\
+When $(c\geq 12)$ there is always at least two coins of m or n. That means we can always increment the cent count via the 2 cases.
+\\
+\item
+
+
+\end{enumerate}
 \end{document}
 
