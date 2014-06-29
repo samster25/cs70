@@ -13,7 +13,7 @@
 
 Collaboraters: None
 
-Sources: None
+Sources: http://comet.lehman.cuny.edu/sormani/teaching/induction.html
 
 \section*{Problem 1} % Put the correct problem number here
 
@@ -300,7 +300,7 @@ False, Proof by Cases
 %6a
 \item
 $\forall n\geq 1~\sum\limits_{i=1}^n\frac{1}{i(i+1)} = \dfrac{n}{n+1}$\hfill Original Statement\\
-$Base~case:n=1\rightarrow\frac{1}{1(1+1)}=\frac{1}{1+1} = \frac{1}{2}$\hfill Valid\\
+$Base~case:n=1\rightarrow\frac{1}{1(1+1)}=\frac{1}{1+1} = \frac{1}{2}$\hfill True\\
 $Inductive~ Hypothesis: \forall k\geq 1~\sum\limits_{i=1}^k\frac{1}{i(i+1)} = \frac{k}{k+1}$\\
 $Let~ n=k+1\\
 \\
@@ -322,7 +322,7 @@ $\frac{(k+1)}{(k+2)} =\frac{(k+1)}{(k+2)}$\hfill Valid\\
 \item
 $\forall n\in\mathbb{N}~(5|(8^n - 3^n))$\hfill Original Statement\\
 $Proof:~(5|(8^n - 3^n))$\\
-$Base~case:~(n=0)\rightarrow(5|(8^0-5^0))= (5|0)$\hfill Valid\\
+$Base~case:~(n=0)\rightarrow(5|(8^0-5^0))= (5|0)$\hfill True\\
 $Inductive~hypothesis:~\forall k\in\mathbb{N}~(5|(8^k - 3^k))$\\
 $let ~n =k+1$\\
 $(5|(8^{k+1} - 3^{k+1}))= (5|(8\times 8^{k} - 3\times 3^{k}))$\hfill Expand\\
@@ -339,6 +339,7 @@ $(5|(8\times 8^{k} - 3\times 3^{k}))= \exists d\in\mathbb{Z}~(5|5(8d + 3^{k}))$\
 
 \section*{Problem 8}
 \begin{enumerate}[(a)]
+%8a
 \item
 
 $\forall c\geq 12~\exists(m,n)\in\mathbb{N}~(3m + 7n = c)~(c\geq 12)$\hfill Original Statement\\
@@ -358,8 +359,50 @@ If there is atleast two 7 cent coins $(n\geq2)$ then we can remove the two 7 cen
 \\
 When $(c\geq 12)$ there is always at least two coins of m or n. That means we can always increment the cent count via the 2 cases.
 \\
+%8b
 \item
-
+$\forall n\in\mathbb{N}~(F_n = \frac{\phi^n-(1-\phi)^n}{\sqrt{5}})$ where $\phi = \frac{1+\sqrt{5}}{2}$\\
+$(F_n = F_{n-2} +F_{n-1})$ where $F_0 = 0,~F_1 =1$\\
+\\
+$Proof: F_n = \frac{\phi^n-(1-\phi)^n}{\sqrt{5}}= F_{n-2} +F_{n-1}$\\
+\\
+$Base~Cases:$\\
+$n=0\rightarrow \frac{\phi^0-(1-\phi)^0}{\sqrt{5}} = 0$\hfill True\\
+$n=1\rightarrow \frac{\phi^1-(1-\phi)^1}{\sqrt{5}} = \frac{\phi- 1+\phi}{\sqrt{5}}=\frac{2\phi -1}{\sqrt{5}}=\frac{1+\sqrt{5}-1}{\sqrt{5}}=1$\hfill True\\
+$Inductive~Hypothesis:~\forall k\in\mathbb{N}~(F_k = \frac{\phi^k-(1-\phi)^k}{\sqrt{5}})$\\
+$let~n=k+2$\\
+\\
+$F_{k+2} = \frac{\phi^{k+2}-(1-\phi)^{k+2}}{\sqrt{5}}
+= \frac{\phi^2\phi^{k}-(1-\phi)^{2}(1-\phi)^{k}}{\sqrt{5}}$\hfill Factor out\\
+$\phi^2 = (\frac{1+\sqrt{5}}{2})^2=\frac{6}{4}+\frac{\sqrt{5}}{2}=1 +\frac{1+\sqrt{5}}{2}
+= 1+\phi$\\
+$(1-\phi)^2=(1-\frac{1+\sqrt{5}}{2})^2=(\frac{1-\sqrt{5}}{2})^2=\frac{6}{4}-\frac{\sqrt{5}}{2}=1+\frac{1-\sqrt{5}}{2}=(1+(1-\phi))$\\
+\\
+$F_{k+2} = \frac{\phi^{k}(1+\phi)-(1-\phi)^{k}(1+(1-\phi))}{\sqrt{5}}
+= \frac{\phi^{k}+\phi^{k+1}-(1-\phi)^{k}-(1-\phi)^{k+1}}{\sqrt{5}}$\hfill Simplify\\
+$F_{k+2} =\frac{\phi^{k}-(1-\phi)^{k}}{\sqrt{5}} + 
+\frac{\phi^{k+1}-(1-\phi)^{k+1}}{\sqrt{5}}\hfill$ Group by order\\
+$F_{k+2} = F_{k} +F_{k+1}$\hfill Substitute hypothesis\\
+$F_k = F_{k-2}+F_{k-1}\hfill$ Valid
+%8c
+\item
+$\forall n\geq2\in\mathbb{N}~f(n)=7f(n-1)-10f(n-2)$ where $f(0) = 1,~ f(1) = 2$\\
+$table~f(n)$\\
+$f(0) = 1$\\
+$f(1) =2$\\
+$f(2)=4$\\
+$f(3)=8$\\
+$f(4)=16$\\
+\\
+$Proof:$
+$f(n)=7f(n-1)-10f(n-2)=2^n$ \hfill Fits the table\\
+$Inductive~hypothesis:~f(n)=2^k$\\
+$let~n=k$
+$f(k)=7f(k-1)-10f(k-2)=7\times2^{k-1}-10\times2^{k-2}$\hfill Substitute hypothesis\\
+$f(k)=\frac{7\times2^{k}}{2}-\frac{10\times2^{k}}{4}
+=\frac{14\times2^{k}}{4}-\frac{10\times2^{k}}{4}
+=\frac{4\times2^{k}}{4}= 2^k$\hfill Simplify\\
+$f(k) = 2^k$\hfill Valid\\
 
 \end{enumerate}
 \end{document}
