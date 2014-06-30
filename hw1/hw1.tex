@@ -11,7 +11,7 @@
 
 \maketitle
 
-Collaboraters: None
+Collaboraters: Chonyi Lama, Jenny Pushkarskaya
 
 Sources: http://comet.lehman.cuny.edu/sormani/teaching/induction.html
 
@@ -173,7 +173,7 @@ $Case~2: \forall x\in \mathbb{R}^{-}~\exists y
 %3b
 \item $\exists y\forall x ~(xy\geq x^2)$ False\\
 $\forall x\in\mathbb{R}~(x^2\geq 0)\\
-Case~0: y=0,\forall x~((x\neq0)\wedge(0 < x^2))\Rightarrow\neg(xy\geq x^2)~ \\
+Case~0: y=0,\forall x\neq0~(0 < x^2)\Rightarrow\neg(xy\geq x^2)~ \\
 Case~1: \exists y\in\mathbb{R}^+~\forall x\
 ((x<0)\Rightarrow (xy < 0)\Rightarrow\neg(xy\geq x^2))\\
 Case~2: \exists y\in\mathbb{R}^-~\forall x\
@@ -281,9 +281,9 @@ $Assume~\neg(r+1~irrational)\equiv (r+1~rational)$\\
 $\forall r\in\mathbb{R}~\exists~a,b\in\mathbb{Z}~(r+1~rational\Leftrightarrow r+1=\frac{a}{b})(b\neq 0)$\hfill definition of a rational number\\
 $r= \frac{a}{b}-1=\frac{a}{b}-\frac{b}{b}=\frac{a-b}{b}$\hfill Solving for $r$ which gives a rational number\\
 \\
-Assuming a false implication we have a contradiction that $r$ is both rational and irrational\\
+Assuming $\neg(r+1~rational)~r$ is rational which is a proof by contrapositive\\
 \\
-True, Proof by Contradiction
+True, Proof by Contrapositive
 \\
 \item
 $\forall n\in\mathbb{N}~(10n^2>n!)$\hfill Original Statement\\
@@ -291,7 +291,7 @@ Case 1: $n=6$\\
 $10(6)^2 > 6!$\\
 $360 \not> 720$\hfill Invalid\\
 
-False, Proof by Cases
+False, Proof by Counterexample
 \end{enumerate}
 
 \clearpage
@@ -337,73 +337,92 @@ $(5|(8\times 8^{k} - 3\times 3^{k}))= \exists d\in\mathbb{Z}~(5|5(8d + 3^{k}))$\
 
 \section*{Problem 7}
 
+\clearpage
 \section*{Problem 8}
+Postponed!!
+
+%\begin{enumerate}[(a)]
+%%8a
+%\item
+%
+%$\forall c\geq 12~\exists(m,n)\in\mathbb{N}~(3m + 7n = c)~(c\geq 12)$\hfill Original Statement\\
+%$m$ is the number of 3 cent coins and $n$ is the number of 7 cent coins\\
+%$Base~Cases:$\\
+%$(c=12)\rightarrow (m=4,n=0)\rightarrow (3(4) + 7(0) = 12)$\\
+%$(c=13)\rightarrow (m=2,n=1)\rightarrow (3(2) + 7(1) = 13)$\hfill (m=m-2,~n=n+1)\\
+%$(c=14)\rightarrow (m=0,n=2)\rightarrow (3(0) + 7(2) = 14)$\hfill (m=m-2,~n=n+1)\\
+%$(c=15)\rightarrow (m=5,n=0)\rightarrow (3(5) + 7(0) = 15)$\hfill (m=m+5,~n=n-2)\\
+%$Inductive~hypothesis:~\forall c\geq 12~\exists(m,n)\in\mathbb{N}~(3m + 7n = c)$\\
+%$Inductive~Cases:$\\
+%$Case~1:$\\
+%If there is atleast two 3 cent coins $(m\geq2)$ then we can remove the two 3 cent coins and add a 7 cent coin to increment the cent count by 1\\ 
+%\\
+%$Case~2:$
+%If there is atleast two 7 cent coins $(n\geq2)$ then we can remove the two 7 cent coins and add five 3 cent coins to increment the cent count by 1\\ 
+%\\
+%When $(c\geq 12)$ there is always at least two coins of m or n. That means we can always increment the cent count via the 2 cases.
+%\\
+%%8b
+%\item
+%$\forall n\in\mathbb{N}~(F_n = \frac{\phi^n-(1-\phi)^n}{\sqrt{5}})$ where $\phi = \frac{1+\sqrt{5}}{2}$\\
+%$(F_n = F_{n-2} +F_{n-1})$ where $F_0 = 0,~F_1 =1$\\
+%\\
+%$Proof: F_n = \frac{\phi^n-(1-\phi)^n}{\sqrt{5}}= F_{n-2} +F_{n-1}$\\
+%\\
+%$Base~Cases:$\\
+%$n=0\rightarrow \frac{\phi^0-(1-\phi)^0}{\sqrt{5}} = 0$\hfill True\\
+%$n=1\rightarrow \frac{\phi^1-(1-\phi)^1}{\sqrt{5}} = \frac{\phi- 1+\phi}{\sqrt{5}}=\frac{2\phi -1}{\sqrt{5}}=\frac{1+\sqrt{5}-1}{\sqrt{5}}=1$\hfill True\\
+%$Inductive~Hypothesis:~\forall k\in\mathbb{N}~(F_k = \frac{\phi^k-(1-\phi)^k}{\sqrt{5}})$\\
+%$let~n=k+2$\\
+%\\
+%$F_{k+2} = \frac{\phi^{k+2}-(1-\phi)^{k+2}}{\sqrt{5}}
+%= \frac{\phi^2\phi^{k}-(1-\phi)^{2}(1-\phi)^{k}}{\sqrt{5}}$\hfill Factor out\\
+%$\phi^2 = (\frac{1+\sqrt{5}}{2})^2=\frac{6}{4}+\frac{\sqrt{5}}{2}=1 +\frac{1+\sqrt{5}}{2}
+%= 1+\phi$\\
+%$(1-\phi)^2=(1-\frac{1+\sqrt{5}}{2})^2=(\frac{1-\sqrt{5}}{2})^2=\frac{6}{4}-\frac{\sqrt{5}}{2}=1+\frac{1-\sqrt{5}}{2}=(1+(1-\phi))$\\
+%\\
+%$F_{k+2} = \frac{\phi^{k}(1+\phi)-(1-\phi)^{k}(1+(1-\phi))}{\sqrt{5}}
+%= \frac{\phi^{k}+\phi^{k+1}-(1-\phi)^{k}-(1-\phi)^{k+1}}{\sqrt{5}}$\hfill Simplify\\
+%$F_{k+2} =\frac{\phi^{k}-(1-\phi)^{k}}{\sqrt{5}} + 
+%\frac{\phi^{k+1}-(1-\phi)^{k+1}}{\sqrt{5}}\hfill$ Group by order\\
+%$F_{k+2} = F_{k} +F_{k+1}$\hfill Substitute hypothesis\\
+%$F_k = F_{k-2}+F_{k-1}\hfill$ Valid
+%\clearpage
+%%8c
+%\item
+%$\forall n\geq2\in\mathbb{N}~f(n)=7f(n-1)-10f(n-2)$ where $f(0) = 1,~ f(1) = 2$\\
+%$table~f(n)$\\
+%$f(0) = 1$\\
+%$f(1) =2$\\
+%$f(2)=4$\\
+%$f(3)=8$\\
+%$f(4)=16$\\
+%\\
+%$Proof:$
+%$f(n)=7f(n-1)-10f(n-2)=2^n$ \hfill Fits the table\\
+%$Inductive~hypothesis:~f(n)=2^k$\\
+%$let~n=k$
+%$f(k)=7f(k-1)-10f(k-2)=7\times2^{k-1}-10\times2^{k-2}$\hfill Substitute hypothesis\\
+%$f(k)=\frac{7\times2^{k}}{2}-\frac{10\times2^{k}}{4}
+%=\frac{14\times2^{k}}{4}-\frac{10\times2^{k}}{4}
+%=\frac{4\times2^{k}}{4}= 2^k$\hfill Simplify\\
+%$f(k) = 2^k$\hfill Valid\\
+%
+%\end{enumerate}
+\clearpage
+
+\section*{Problem 9}
 \begin{enumerate}[(a)]
-%8a
 \item
-
-$\forall c\geq 12~\exists(m,n)\in\mathbb{N}~(3m + 7n = c)~(c\geq 12)$\hfill Original Statement\\
-$m$ is the number of 3 cent coins and $n$ is the number of 7 cent coins\\
-$Base~Cases:$\\
-$(c=12)\rightarrow (m=4,n=0)\rightarrow (3(4) + 7(0) = 12)$\\
-$(c=13)\rightarrow (m=2,n=1)\rightarrow (3(2) + 7(1) = 13)$\hfill (m=m-2,~n=n+1)\\
-$(c=14)\rightarrow (m=0,n=2)\rightarrow (3(0) + 7(2) = 14)$\hfill (m=m-2,~n=n+1)\\
-$(c=15)\rightarrow (m=5,n=0)\rightarrow (3(5) + 7(0) = 15)$\hfill (m=m+5,~n=n-2)\\
-$Inductive~hypothesis:~\forall c\geq 12~\exists(m,n)\in\mathbb{N}~(3m + 7n = c)$\\
-$Inductive~Cases:$\\
-$Case~1:$\\
-If there is atleast two 3 cent coins $(m\geq2)$ then we can remove the two 3 cent coins and add a 7 cent coin to increment the cent count by 1\\ 
-\\
-$Case~2:$
-If there is atleast two 7 cent coins $(n\geq2)$ then we can remove the two 7 cent coins and add five 3 cent coins to increment the cent count by 1\\ 
-\\
-When $(c\geq 12)$ there is always at least two coins of m or n. That means we can always increment the cent count via the 2 cases.
-\\
-%8b
+Incorrect, another base case is needed\\
+If we add another base case where $n=1$ then\\
+Suppose $n=1$. If max$(x,y) =1$ and $x,y\in\mathbb{N}$, then $x=1 \vee y=1$ \\
+hence $(x\leq y)\vee(x>y)$\\
+This shows that the claim is false due to the fact that max$(x,y)=n$ is true even when $x>y$\\
 \item
-$\forall n\in\mathbb{N}~(F_n = \frac{\phi^n-(1-\phi)^n}{\sqrt{5}})$ where $\phi = \frac{1+\sqrt{5}}{2}$\\
-$(F_n = F_{n-2} +F_{n-1})$ where $F_0 = 0,~F_1 =1$\\
-\\
-$Proof: F_n = \frac{\phi^n-(1-\phi)^n}{\sqrt{5}}= F_{n-2} +F_{n-1}$\\
-\\
-$Base~Cases:$\\
-$n=0\rightarrow \frac{\phi^0-(1-\phi)^0}{\sqrt{5}} = 0$\hfill True\\
-$n=1\rightarrow \frac{\phi^1-(1-\phi)^1}{\sqrt{5}} = \frac{\phi- 1+\phi}{\sqrt{5}}=\frac{2\phi -1}{\sqrt{5}}=\frac{1+\sqrt{5}-1}{\sqrt{5}}=1$\hfill True\\
-$Inductive~Hypothesis:~\forall k\in\mathbb{N}~(F_k = \frac{\phi^k-(1-\phi)^k}{\sqrt{5}})$\\
-$let~n=k+2$\\
-\\
-$F_{k+2} = \frac{\phi^{k+2}-(1-\phi)^{k+2}}{\sqrt{5}}
-= \frac{\phi^2\phi^{k}-(1-\phi)^{2}(1-\phi)^{k}}{\sqrt{5}}$\hfill Factor out\\
-$\phi^2 = (\frac{1+\sqrt{5}}{2})^2=\frac{6}{4}+\frac{\sqrt{5}}{2}=1 +\frac{1+\sqrt{5}}{2}
-= 1+\phi$\\
-$(1-\phi)^2=(1-\frac{1+\sqrt{5}}{2})^2=(\frac{1-\sqrt{5}}{2})^2=\frac{6}{4}-\frac{\sqrt{5}}{2}=1+\frac{1-\sqrt{5}}{2}=(1+(1-\phi))$\\
-\\
-$F_{k+2} = \frac{\phi^{k}(1+\phi)-(1-\phi)^{k}(1+(1-\phi))}{\sqrt{5}}
-= \frac{\phi^{k}+\phi^{k+1}-(1-\phi)^{k}-(1-\phi)^{k+1}}{\sqrt{5}}$\hfill Simplify\\
-$F_{k+2} =\frac{\phi^{k}-(1-\phi)^{k}}{\sqrt{5}} + 
-\frac{\phi^{k+1}-(1-\phi)^{k+1}}{\sqrt{5}}\hfill$ Group by order\\
-$F_{k+2} = F_{k} +F_{k+1}$\hfill Substitute hypothesis\\
-$F_k = F_{k-2}+F_{k-1}\hfill$ Valid
-%8c
+Incorrect, The inductive step did not prove $n+1<2^{n+1}$.
 \item
-$\forall n\geq2\in\mathbb{N}~f(n)=7f(n-1)-10f(n-2)$ where $f(0) = 1,~ f(1) = 2$\\
-$table~f(n)$\\
-$f(0) = 1$\\
-$f(1) =2$\\
-$f(2)=4$\\
-$f(3)=8$\\
-$f(4)=16$\\
-\\
-$Proof:$
-$f(n)=7f(n-1)-10f(n-2)=2^n$ \hfill Fits the table\\
-$Inductive~hypothesis:~f(n)=2^k$\\
-$let~n=k$
-$f(k)=7f(k-1)-10f(k-2)=7\times2^{k-1}-10\times2^{k-2}$\hfill Substitute hypothesis\\
-$f(k)=\frac{7\times2^{k}}{2}-\frac{10\times2^{k}}{4}
-=\frac{14\times2^{k}}{4}-\frac{10\times2^{k}}{4}
-=\frac{4\times2^{k}}{4}= 2^k$\hfill Simplify\\
-$f(k) = 2^k$\hfill Valid\\
-
+Incorrect, Proof by contrapositive would lead you to assume that $n^2 + 1$ is not a multiple of 3 which would imply that $2n+1$ is not a multiply of three. This example however did a proof of cases.\\
 \end{enumerate}
 \end{document}
 
