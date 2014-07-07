@@ -459,9 +459,88 @@ $y\equiv13$ (mod 19)\\
 \section*{Problem 6}
 \begin{enumerate}[(a)]
 \item
+Prove $\{1a,2a, ... ~(p-1)a\}$ where p is non-zero and $a\in\{1, 2 ...,~p-1\}$ is a set of distinct numbers.\\\\
+
+\textbf{Lemma: Distinct integers}\\
+Let's assume that there are two products of some $x,y\in\{1, 2 ...,~p-1\}$ and $a$ that are modularly congruent mod p.\\
+$xa\equiv ya$ mod p\\
+$x\equiv y$ mod p\hfill since $a$ is non-zero and co-prime to p\\\\
+We have a contradiction due to the fact that $x,y$ are always less than $p-1.$\\
+($x$ mod p = $x$) This would mean that $x=y$ which would state that the set is not distinct.\\Proof by contradiction.\\\\
+if we have $\{1a,2a, ... ~(p-1)a\}$ then it's product would be $\prod\limits_{i=1}^{p-1}(ai)=a^{p-1}\times\prod\limits_{i=1}^{p-1}(i)$\\\\
+From the previous lemma we showed that a set$\in\{1,2,~...~p-1\}$ has all distinct values and therefore has $p-1$ congruence classes. From this we can say that if an $a$ is multiplied to all elements in the set then each element in $\{1,2,~...~p-1\}$ will be modularly congruent uniquely to some element in $\{1a,2a,~...~(p-1)a\}$ and therefore\\
+$\prod\limits_{i=1}^{p-1}i\equiv a^{p-1}\times\prod\limits_{i=1}^{p-1}(i)$ (mod $p$)\\\\
+Due to the fact that $\Pi$ is nonzero we can cancel it.\\\\
+$1\equiv a^{p-1}$ mod p\hfill Valid\\\\
+\clearpage
+
+\item
+$\forall n~S_n$ is the set of all integers $a\in \{1,2,~...~n-1\}$ such that $GCD(a,n) =1$\\
+This means that all integers in the set have to be coprime with $n$. If $n$ is prime then\\ $\{1,2,~...~n-1\}$ are all coprime with $n$ and are in the set. $|S_n|$ denotes the number of coprime integers that are $(\leq n-1).$ Once again if $n$ was prime then $|S_n|$ would be $n-1.$\\
+\\
+\textbf{Proof by Cases:}\\
+
+Case 1: $n$ is prime\\
+
+if $n$ is prime then $|S_n|$ would be $n-1$ and we would have $a^{|S_n|}\equiv 1$ (mod $n$)\\
+$a^{n-1}\equiv 1$ (mod $n$) where $a\in\{1,2,~...~n-1\}$\\ 
+We proved this in 6a. (Fermat's Little Theorem)\\
+
+Case 2: $n$ isn't prime\\
+
+We can once again use the Lemma from 6a that proves that the integers in the set which are $(\leq n-1)$ are distinct. Since they are distinct, multiplying each number with a constant $\in S_n$ will result a modularly congruent set mod $(n-1).$\\
+\\
+Armed with the fact that the multiplying each element with an element in the set will result in the modularly equivalent set. We can state that the products are also modularly equivalent.\\
+
+$\prod\limits_{i=1}^{|S_n|}S_i\equiv a^{|S_n|}\times\prod\limits_{i=1}^{|S_n|}S_i$ (mod $n$)\\\\
+Dividing both sides with $\Pi$ which is obviously nonzero gives\\ \\
+$1 \equiv a^{|S_n|}$ (mod $n$) where $a\in S_n$\hfill valid\\\\
+\clearpage
 
 \end{enumerate}
-
-
+\section*{Problem 7}
+\begin{enumerate}[(a)]
+\item
+Base Case:\\
+let $n = 1$\\
+You can move the single largest disk from the source needle to the destination needle.\\
+1 move.\\
+\\
+let $n = 2$\\
+You can move the smallest disk from the source needle to the buffer needle.
+Next move the largest disk to the destination needle.
+Now move the small disk on the buffer needle to the destination needle.\\
+3 moves.\\
+\\
+let $n = 3$\\
+Move the smallest disk to the destination needle.\\
+Next move the second largest disk to the buffer needle. \\
+Now move the smallest disk on top of the buffer needle. ($n-1$ on the buffer )\\
+Now place the largest disk onto the destination needle.\\
+Next place the smallest disk on the source needle.\\
+The second largest onto the destination needle.\\
+the smallest disk onto the destination needle.\\
+7 moves.\\\\
+From this we can see the strategy is place $n-1$ disks onto a non-destination needle and then to place the $n^{th}$ disk on the destination needle and then place $n-1$ on the destination needle. We need to continue this recursively until the base case is reached.\\
+Since we are moving $n-1$ twice and $n=1$ once we have\\
+$F(n) = F(n-1) + F(1)+ F(n-1) = 2F(n-1) + F(1) = 2F(n-1) + 1$\\
+\\
+Now let's write out a table\\
+$n=4\rightarrow~F(4) = 2F(3) + 1 = 14+1=15$\\
+$n=5\rightarrow~F(5) = 2F(4) + 1 = 14+1=31$\\
+$n=6\rightarrow~F(6) = 2F(5) + 1 = 14+1=63$\\
+$n=7\rightarrow~F(7) = 2F(6) + 1 = 14+1=127$\\
+From the table it looks like the pattern is $F(n) = 2^n -1$\\\\
+\textbf{Proof:} By induction on n\\ 
+Inductive Hypotheis: $F(k) = 2F(k-1) + 1 = 2^k -1$\\
+let $n=k+1$\\
+$F(k+1) = 2F(k) + 1 = 2^{k+1} -1$\\
+$F(k+1) = 2(2^k -1) + 1 = 2^{k+1} -1$\hfill Substitute inductive hypothesis\\
+$F(k+1) = 2^{k+1} -2 + 1 = 2^{k+1} -1$\\
+$F(k+1) = 2^{k+1} -1 = 2^{k+1} -1$\\
+$F(k+1) = 2^{k+1}$\hfill Valid\\
+\\
+$2^{64}-1=18446744073709551615$ seconds = 585 billion years
+\end{enumerate}
 \end{document}
 
