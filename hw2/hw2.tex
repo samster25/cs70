@@ -1,0 +1,467 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fullpage}
+\usepackage{enumerate}
+
+\title{CS 70, Summer 2014 --- Homework 2} % Put the correct homework number here.
+\author{Harsimran (Sammy) Sidhu, SID 23796591} % Put your name and student ID here.
+
+\begin{document}
+
+\maketitle
+
+Collaboraters: Chonyi Lama, Jenny Pushkarskaya
+
+Sources: http://comet.lehman.cuny.edu/sormani/teaching/induction.html
+
+\section*{Problem 1} % Put the correct problem number here
+
+\begin{enumerate}[(a)]
+%8a
+\item
+$\forall n>0$\\
+ $\left[ {\begin{array}{cc}
+   1 & 2 \\
+   0 & 1 \\
+  \end{array} } \right]^n 
+  \leq 
+   \left[ {\begin{array}{cc}
+   2n & 2n \\
+   2n & 2n \\
+  \end{array} } \right]$\\
+  \\
+  Proof: Define $A(x)$ to be\\\\
+   $\left[ {\begin{array}{cc}
+   1 & 2 \\
+   0 & 1 \\
+  \end{array} } \right]^n$ \\
+  
+  Base Cases:\\
+  let $n=1$\\\\
+  $A(1) = 
+   \left[ {\begin{array}{cc}
+   1 & 2 \\
+   0 & 1 \\
+  \end{array} } \right]$\\\\
+   $\left[ {\begin{array}{cc}
+   1 & 2 \\
+   0 & 1 \\
+  \end{array} } \right]
+  \leq    \left[ {\begin{array}{cc}
+   2 & 2 \\
+   2 & 2 \\
+  \end{array} } \right]$\hfill Valid\\
+  
+  
+  
+  let $n=2$\\\\
+  $A(2) = 
+   \left[ {\begin{array}{cc}
+   1 & 2 \\
+   0 & 1 \\
+  \end{array} } \right]^2
+  =
+  \left[ {\begin{array}{cc}
+   1 & 2 \\
+   0 & 1 \\
+  \end{array} } \right]
+  \times
+  \left[ {\begin{array}{cc}
+   1 & 2 \\
+   0 & 1 \\
+  \end{array} } \right]
+  =
+  A(1)\times
+   \left[ {\begin{array}{cc}
+   1 & 2 \\
+   0 & 1 \\
+  \end{array} } \right]
+  =
+   \left[ {\begin{array}{cc}
+   1 & 4 \\
+   0 & 1 \\
+  \end{array} } \right]$\\\\
+  
+   $\left[ {\begin{array}{cc}
+   1 & 4 \\
+   0 & 1 \\
+  \end{array} } \right]
+  \leq    \left[ {\begin{array}{cc}
+   4 & 4 \\
+   4 & 4 \\
+  \end{array} } \right]$\hfill Valid\\
+  
+  let $n =3$\\\\
+  $A(3) = 
+  \left[ {\begin{array}{cc}
+   1 & 2 \\
+   0 & 1 \\
+  \end{array} } \right]^3
+  =
+  A(2)\times
+   \left[ {\begin{array}{cc}
+   1 & 2 \\
+   0 & 1 \\
+  \end{array} } \right]
+  =
+   \left[ {\begin{array}{cc}
+   1 & 6 \\
+   0 & 1 \\
+  \end{array} } \right]\\\\
+   \left[ {\begin{array}{cc}
+   1 & 6 \\
+   0 & 1 \\
+  \end{array} } \right]
+  \leq    \left[ {\begin{array}{cc}
+   6 & 6 \\
+   6 & 6 \\
+  \end{array} } \right]$\hfill Valid\\\\
+  Strengthing the Hypothesis: From the base cases it seems that\\\\
+  $A(n) = 
+  \left[ {\begin{array}{cc}
+   1 & 2 \\
+   0 & 1 \\
+  \end{array} } \right]^n 
+  = 
+  \left[ {\begin{array}{cc}
+   1 & 2n \\
+   0 & 1 \\
+  \end{array} } \right]\\\\
+   $
+Which is obviously $(\leq2n)$ for every entry.\\\\
+Inductive~Hypothesis:
+$A(k) = 
+  \left[ {\begin{array}{cc}
+   1 & 2 \\
+   0 & 1 \\
+  \end{array} } \right]^k 
+  = 
+  \left[ {\begin{array}{cc}
+   1 & 2k \\
+   0 & 1 \\
+  \end{array} } \right]\\
+   $\\
+   let $n=k+1\\\\
+\left[ {\begin{array}{cc}
+   1 & 2 \\
+   0 & 1 \\
+  \end{array} } \right]^{k+1} 
+  = 
+  \left[ {\begin{array}{cc}
+   1 & 2(k+1) \\
+   0 & 1 \\
+  \end{array} } \right]$\\
+  
+  
+  
+ 
+   $\left[ {\begin{array}{cc}
+   1 & 2 \\
+   0 & 1 \\
+  \end{array} } \right]^{k}
+  \times 
+   \left[ {\begin{array}{cc}
+   1 & 2 \\
+   0 & 1 \\
+  \end{array} } \right]
+  = 
+  \left[ {\begin{array}{cc}
+   1 & 2k+2 \\
+   0 & 1 \\
+  \end{array} } \right]\\
+   $
+   
+
+   $\left[ {\begin{array}{cc}
+   1 & 2k \\
+   0 & 1 \\
+  \end{array} } \right]
+  \times 
+   \left[ {\begin{array}{cc}
+   1 & 2 \\
+   0 & 1 \\
+  \end{array} } \right]
+  = 
+  \left[ {\begin{array}{cc}
+   1 & 2k+2 \\
+   0 & 1 \\
+  \end{array} } \right]$\hfill Substitute Inductive Hypothesis\\
+
+
+
+ $\left[ {\begin{array}{cc}
+   (1\times 1 + 0\times 2k) & (1\times2 + 2k\times1) \\
+   (0\times1 + 1\times0) & (0\times2 + 1\times 1) \\
+  \end{array} } \right]
+  = 
+  \left[ {\begin{array}{cc}
+   1 & 2k+2 \\
+   0 & 1 \\
+  \end{array} } \right]$\\
+
+ $\left[ {\begin{array}{cc}
+   1 & 2k + 2 \\
+   0 & 1 \\
+  \end{array} } \right]
+  = 
+  \left[ {\begin{array}{cc}
+   1 & 2k+2 \\
+   0 & 1 \\
+  \end{array} } \right]$\hfill Valid\\
+
+%8b
+\item
+
+$\forall c\geq 12~\exists(m,n)\in\mathbb{N}~(3m + 7n = c)$\hfill Original Statement\\
+$m$ is the number of 3 cent coins and $n$ is the number of 7 cent coins\\
+Base Cases:\\
+$(c=12)\rightarrow (m=4,n=0)\rightarrow (3(4) + 7(0) = 12)$\\
+$(c=13)\rightarrow (m=2,n=1)\rightarrow (3(2) + 7(1) = 13)$\hfill (m=m-2,~n=n+1)\\
+$(c=14)\rightarrow (m=0,n=2)\rightarrow (3(0) + 7(2) = 14)$\hfill (m=m-2,~n=n+1)\\\\
+Inductive Hypothesis: Suppose we can make form any integer value of cents from $12$ to $k$. We need to show that we can make $k+1$ cents using only 3-cent and 7-cent coins\\\\
+Since we proved base cases to 14, we'll assume $k+1\geq 15$\\
+$k+1\geq 15$\\
+$(k+1)-3\geq 15-3$\\
+$(k+1)-3\geq 15-3$\\
+$(k+1)-3\geq 12$\\
+$(k+1)-3=3m +7n$\\
+$(k+1)=3(m+1) +7n$\hfill valid\\
+\clearpage
+%8c
+\item
+$\forall n\in\mathbb{N}~(F_n = \frac{\phi^n-(1-\phi)^n}{\sqrt{5}})$ where $\phi = \frac{1+\sqrt{5}}{2}$\\
+$(F_n = F_{n-2} +F_{n-1})$ where $F_0 = 0,~F_1 =1$\\
+\\
+Proof: $F_n = \frac{\phi^n-(1-\phi)^n}{\sqrt{5}}= F_{n-2} +F_{n-1}$\\
+\\
+Base~Cases:\\
+$n=0\rightarrow \frac{\phi^0-(1-\phi)^0}{\sqrt{5}} = 0$\hfill True\\
+$n=1\rightarrow \frac{\phi^1-(1-\phi)^1}{\sqrt{5}} = \frac{\phi- 1+\phi}{\sqrt{5}}=\frac{2\phi -1}{\sqrt{5}}=\frac{1+\sqrt{5}-1}{\sqrt{5}}=1$\hfill True\\
+Inductive~Hypothesis: Assume $F_k = \frac{\phi^k-(1-\phi)^k}{\sqrt{5}}$ is true for integers $0 \leq k$\\
+We now need to show $F(k)$ for $k\geq2$\\
+$let~n=k+2$ \hfill Will hit either of the two base cases\\
+\\
+$F_{k+2} = \frac{\phi^{k+2}-(1-\phi)^{k+2}}{\sqrt{5}}
+= \frac{\phi^2\phi^{k}-(1-\phi)^{2}(1-\phi)^{k}}{\sqrt{5}}$\hfill Factor out\\
+$\phi^2 = (\frac{1+\sqrt{5}}{2})^2=\frac{6}{4}+\frac{\sqrt{5}}{2}=1 +\frac{1+\sqrt{5}}{2}
+= 1+\phi$\\
+$(1-\phi)^2=(1-\frac{1+\sqrt{5}}{2})^2=(\frac{1-\sqrt{5}}{2})^2=\frac{6}{4}-\frac{\sqrt{5}}{2}=1+\frac{1-\sqrt{5}}{2}=(1+(1-\phi))$\\
+\\
+$F_{k+2} = \frac{\phi^{k}(1+\phi)-(1-\phi)^{k}(1+(1-\phi))}{\sqrt{5}}
+= \frac{\phi^{k}+\phi^{k+1}-(1-\phi)^{k}-(1-\phi)^{k+1}}{\sqrt{5}}$\hfill Simplify\\
+$F_{k+2} =\frac{\phi^{k}-(1-\phi)^{k}}{\sqrt{5}} + 
+\frac{\phi^{k+1}-(1-\phi)^{k+1}}{\sqrt{5}}\hfill$ Group by order\\
+$F_{k+2} = F_{k} +F_{k+1}$\hfill Substitute hypothesis\\
+$F_k = F_{k-2}+F_{k-1}\hfill$ Valid
+
+%8d
+\item
+$\forall n\geq2\in\mathbb{N}~f(n)=7f(n-1)-10f(n-2)$ where $f(0) = 1,~ f(1) = 2$\\
+$table~f(n)$\\
+$f(0) = 1$\hfill True\\
+$f(1) =2$\hfill True\\
+$f(2)=4$\\
+$f(3)=8$\\
+$f(4)=16$\\\\
+Proof:
+$f(n)=7f(n-1)-10f(n-2)=2^n$ with Induction on $n$\hfill Fits the table\\
+Inductive~hypothesis: Assume $f(k)=2^k$ for all $n$ between 2 and $k$. We now need to show that $f(k+1) = 2^{k+1}$\\
+\\
+$let~n=k+1$\\
+$f(k+1)=7f(k)-10f(k-1)=7\times2^{k}-10\times2^{k-1}$\hfill Substitute hypothesis\\
+$f(k+1)=7f(k)-10f(k-1)=7\times2^{k}-10\times2^{k-1}$\\
+$f(k+1)=7f(k)-10f(k-1)=7\times2^{k}-5\times2^{k}$\\
+$f(k+1)=7f(k)-10f(k-1)=2\times2^{k}$\\
+$f(k+1)=7f(k)-10f(k-1)=2^{k+1}$\\
+$f(k+1) = 2^{k+1}$\hfill Valid\\
+
+\end{enumerate}
+\clearpage
+
+\section*{Problem 2}
+\begin{enumerate}[(a)]
+\item
+True, if man $M$ and woman $W$ put each other on top of their respective preference list and they are both paired with other people then they will always be a rogue couple.\\
+\item
+False, if man $M$ and woman $W$ are on the bottom of everyone's preference list then they would be paired to one another with no rogue couples existing.\\
+\item
+True, there exists a stable marriage instance where every unmatched couple is a rogue couple. If all the men were matched to their unique least preferred woman and the the women also preferred that man the least uniquely then every couple would be a rogue couple.\\
+\end{enumerate} 
+\clearpage
+
+\section*{Problem 3}
+\begin{enumerate}[(a)]
+\item
+\textbf{Every Morning:} Each student goes to the hospital on top of their list that they haven't  crossed off yet\\
+\\
+\textbf{Every Afternoon:} Each hospital $h$ says to come back the next day to the top $q_h$ students (from prior day's waitlist and new proposals) and adds them to their waitlist. Then each hospital $h$ rejects their respective non-top students that were proposals or prior waitlisters that are no longer in the top $q_h$ and have been bumped out.\\
+\\
+\textbf{Every Night:} Each rejected student then crosses off the hospital $h$ that rejected them.\\
+\\
+The loop is repeated until no more students are rejected from hospitals and all the slots for have been filled for each hospital $h$. Each hospital $h$ now accepts the $q_h$ students on their waitlist.\\
+
+\item
+\textbf{Improvement Lemma:} For each hospital $h$, after its waitlist becomes full, its least favorite student on the waitlist can only improve over time.
+\\
+\\
+Suppose a proof by contradiction, that hospital $h$'s least favorite student becomes worse with each day. On day $k$ hospital $h$ has a student $s$ that is its least favorite. On day $k+1$, student $s\prime$ proposes to hospital $h$. Since our algorithm states that hospital $h$ bumps off it's least favorite student, student $s$ is rejected. That means that the hospital favors $s\prime$ over $s$ meaning $s\prime > s$. This contradicts our assumption and proves that hospital $h$'s waitlist only improves with time.
+\\\\
+\textbf{Lemma:} The algorithm must find a stable arrangement.\\
+\\
+Let's suppose that our algorithm doesn't find a stable arrangement, and there's a rouge student hospital pair $(s,h^*)$. (where $s$ prefers $h^*$ and vice-versa). Let's also say that $s$ is now paired with $h$. For $s$ to get paired with $h$, $s$ must have had to propose to $h^*$, and since $h^*$ prefers $s$, it would have not rejected $s$ from it's waitlist. We have a contradiction here, proving that the algorithm does in fact find a stable arrangement.\\
+
+\end{enumerate}
+\clearpage
+
+
+\section*{Problem 4}
+$d=gcd(x,y)=ax+by$\\
+\begin{enumerate}[(a)]
+\item
+$d=gcd(x,y)=(a_0 +yk)x+(b_0-xk)y$\\
+$d=gcd(x,y)=a_0 x +xyk+b_0 y-xyk$\\
+$d=gcd(x,y)=a_0 x+b_0 y$\\
+\\
+$\forall k~a=a_0 +yk,~b=b_0-xk$\\
+\item
+$gcd(30,18)\rightarrow 30 = (1\times18)+12$\\
+$gcd(18,12)\rightarrow 18 = (1\times12)+6$\\
+$gcd(12,6)\rightarrow 12 = (2\times6)+0$\\
+$gcd(6,0)\rightarrow 6 = (0\times0)+6\rightarrow~m=6$\\
+\\
+extended gcd\\
+$d=gcd(x,y)=~~~~~~a_0x+b_0y$\\
+$6=gcd(6,0)=~~~~~1(6)+0(0)$\\
+$6=gcd(12,6)=~~~0(12)+1(6)$\\
+$6=gcd(18,12)=~~1(18)-1(6)$\\
+$6=gcd(30,18)=-1(30)+2(18)\rightarrow a_0=-1,~b_0=2$\\
+\\
+$\forall k~a=-1+18k,~b=2-30k$\\
+\item
+$d=gcd(x,y)=ax+by$\\
+$2d=2ax+2by$\\
+$2d=(2a)x+(2b)y$\\
+$6=gcd(30,18)=-1(30)+2(18)$\\
+$2\times6=(2\times-1)(30)+(2\times2)(18)$\\
+$12=-2(30)+4(18)$\\
+$(a=-2,~b=4)$
+\end{enumerate}
+\clearpage
+\section*{Problem 5}
+\begin{enumerate}[(a)]
+%5a
+\item
+$(3002+6002\times9002)$ mod 3\\
+$(2+2\times2)$ mod 3\\
+$(2+4)$ mod 3\\
+$(6)$ mod 3\\
+\\
+$0$ mod 3\\
+%5b
+\item
+$(1002^3-2468\times17+4)$ mod 5\\
+$(2^3-3\times2+4)$ mod 5\\
+$(8-6+4)$ mod 5\\
+$(3-1+4)$ mod 5\\
+$(6)$ mod 5\\
+\\
+$(1)$ mod 5\\
+%5c
+\item
+Inverses for $\{0,1,2,... ,19\}$ mod 20\\
+gcd$(20,1)=$\
+gcd$(20,3)=$\
+gcd$(20,7)=$\
+gcd$(20,9)=$\
+gcd$(20,11)=$\
+gcd$(20,13)=$\
+gcd$(20,17)=$\
+gcd$(20,19)=1$\\
+\\
+$\{1,3,7,9,11,13,17,19\}$ have inverses mod 20\\
+\\
+$1 = 1b$ mod 20 $let~ b =21$\\
+$1=3b$ mod 20 $let~ b =7$\\
+$1=7b$ mod 20 $let~ b =3$\\
+$1=9b$ mod 20 $let~ b =9$\\
+$1=11b$ mod 20 $let~ b =-9$\\
+$1=13b$ mod 20 $let~ b =-3$\\
+$1=17b$ mod 20 $let~ b =-7$\\
+$1=19b$ mod 20 $let~ b =-1$\\
+\clearpage
+%5d
+\item
+$\dfrac{5-(19\times3)}{7\times9}$ mod 20\\
+\\
+$=\dfrac{5-57}{63}$ mod 20\\
+\\
+$=\dfrac{5+3}{3}$ mod 20\\
+\\
+$=\dfrac{8}{3}$ mod 20\\
+\\
+$= 8\times3^{-1}$ mod 20\\
+$= 8\times7$ mod 20\hfill inverse found in 5c\\
+$= 56$ mod 20\\
+$= 16$ mod 20\\
+%5e
+\item
+$1=$gcd$(m,x)=am+bx$\\
+gcd$(55,36)$\\
+gcd$(55,36)\rightarrow55 = 1(36) + 19$\\
+gcd$(36,19)\rightarrow36 = 1(19)+ 17$\\
+gcd$(19,17)\rightarrow19 = 1(17)+ 2$\\
+gcd$(17,2)\rightarrow17 = 8(2)+ 1$\\
+gcd$(2,1)\rightarrow2 = 2(1)+ 0$\\
+gcd$(1,0)\rightarrow1 = 0(0)+ 1$\\
+\\
+Extended gcd for the inverse\\
+$1=$gcd$(m,x)=am+bx$\\
+gcd$(1,0)=1= 1(1)+ 0(0)$\\
+gcd$(2,1)=1 = 0(2)+ 1(1)$\\
+gcd$(17,2)=1 = 1(17)- 8(2)$\\
+gcd$(19,17)=1 = -8(19) + 9(17)$\\
+gcd$(36,19)=1 = 9(36) + -17(19)$\\
+gcd$(55,36)=1 = -17(55) + 26(36)$  $b=26$\\
+$36^{-1}$ mod 55 = \textbf{26}\\
+$(26\times36)$ mod 55 $=(936)$ mod 55 $=(1)$ mod 55\hfill valid\\
+%5f
+\item
+$17x\equiv4$ mod 20\\
+$(-7)\times17x\equiv(-7)\times4$ mod 20\hfill inverse found in 5c\\
+$-119x\equiv-28$ mod 20\\
+\\
+$x\equiv12$ mod 20\\
+$\forall k\in\mathbb{Z}~x=12+20k$\\
+\clearpage
+%5g
+\item
+$5x+3y\equiv0$ (mod 19)\\
+$y\equiv4+12x$ (mod 19)\\
+$5x+3y\equiv0$ (mod 19) $\rightarrow$ $3y\equiv-5x$ (mod 19)\\ 
+$\rightarrow$ $(-6)\times3y\equiv(-6)\times-5x$ (mod 19)\\
+$\rightarrow$ $-18y\equiv30x$ (mod 19)\\
+$\rightarrow$ $y\equiv11x$ (mod 19)\\
+$11x\equiv4+12x$ (mod 19)\\
+$0\equiv4+x$ (mod 19)\\
+$-4\equiv x$ (mod 19)\\
+$x\equiv 15$ (mod 19)\\
+$y\equiv11(15)$ (mod 19)\\
+$y\equiv165$ (mod 19)\\
+$y\equiv13$ (mod 19)\\
+\\
+$x\equiv 15$ (mod 19)\\
+$y\equiv13$ (mod 19)\\
+
+\end{enumerate}
+\clearpage
+
+\section*{Problem 6}
+\begin{enumerate}[(a)]
+\item
+
+\end{enumerate}
+
+
+\end{document}
+

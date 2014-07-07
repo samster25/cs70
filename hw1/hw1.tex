@@ -337,7 +337,32 @@ $(5|(8\times 8^{k} - 3\times 3^{k}))= \exists d\in\mathbb{Z}~(5|5(8d + 3^{k}))$\
 \clearpage
 
 \section*{Problem 7}
-
+$\forall r>0~\forall k>0~\exists m~(\frac{1}{n_1}+...+\frac{1}{n_k} = r)$ where $m$ is the number of ways to make r with k and $n_1,...,n_k$ are some positive integers\\
+\\
+allow $m=f(r,k)$ to be a function that takes in a $r$ and $k$ and returns m (amounts of ways to make r with k elements)\\
+\\
+$Base~Case:~(k=1)$\\
+$f(r,1)\rightarrow \frac{1}{\frac{1}{r}} = r$\hfill $n_1 = \frac{1}{r}$\\
+$f(r,1)=1$\hfill $m$ exists\\
+\\
+$Proof:$ Induction on $k$\\
+\\
+$Inductive~Hypothesis:~\exists m~(\frac{1}{n_1}+...+\frac{1}{n_k} = r)$ where $m$ is the number of ways to make r with k and $n_1,...,n_k$ are some positive integers\\
+\\
+$let~k=k+1$\\
+\\
+$(\frac{1}{n_1}+...+\frac{1}{n_k} + \frac{1}{n_{k+1}}= r)$ where $\frac{1}{n_{k+1}}$ is the largest term.\\
+\\
+$r\leq(k+1)\times\frac{1}{n_{k+1}}$\\
+$\frac{r}{k+1}\leq\frac{1}{n_{k+1}}$\hfill Divide both sides by $(k+1)$\\
+\\
+$\frac{k+1}{r}\geq n_{k+1}$\hfill Inverse\\
+\\
+This shows that $n_{k+1}$ is bounded by $\frac{k+1}{r}$ and therefore finite.\\
+this implies 
+$(\frac{1}{n_1}+ ... +\frac{1}{n_k} = r-\frac{1}{n_{k+1}})$ where $\frac{1}{n_{k+1}}$ and $r$ are finite which produce $r\prime$ also finite.\\
+\\
+$(\frac{1}{n_1}+...+\frac{1}{n_k} = r\prime)$\hfill Valid\\
 \clearpage
 \section*{Problem 8}
 Postponed!!
@@ -423,7 +448,7 @@ This shows that the claim is false due to the fact that max$(x,y)=n$ is true eve
 \item
 Incorrect, The inductive step did not prove $n+1<2^{n+1}$.
 \item
-Incorrect, Proof by contrapositive would lead you to assume that $n^2 + 1$ is not a multiple of 3 which would imply that $2n+1$ is not a multiply of three. This example however did a proof of cases.\\
+Incorrect, Proof by contrapositive would lead you to assume that $n^2 + 1$ is not a multiple of 3 which would imply that $2n+1$ is not a multiply of three. This example however did a proof of converse which isn't enough to prove the claim.\\
 \end{enumerate}
 \end{document}
 
