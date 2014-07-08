@@ -298,7 +298,7 @@ True, there exists a stable marriage instance where every unmatched couple is a 
 \\
 \textbf{Every Night:} Each rejected student then crosses off the hospital $h$ that rejected them.\\
 \\
-The loop is repeated until no more students are rejected from hospitals and all the slots for have been filled for each hospital $h$. Each hospital $h$ now accepts the $q_h$ students on their waitlist.\\
+The loop is repeated until all students that are unpaired have been rejected from all hospitals and all the slots for have been filled for each hospital $h$. Each hospital $h$ now accepts the $q_h$ students on their waitlist.\\
 
 \item
 \textbf{Improvement Lemma:} For each hospital $h$, after its waitlist becomes full, its least favorite student on the waitlist can only improve over time.
@@ -380,14 +380,14 @@ gcd$(20,19)=1$\\
 \\
 $\{1,3,7,9,11,13,17,19\}$ have inverses mod 20\\
 \\
-$1 = 1b$ mod 20 $let~ b =21$\\
+$1 = 1b$ mod 20 $let~ b =1$\\
 $1=3b$ mod 20 $let~ b =7$\\
 $1=7b$ mod 20 $let~ b =3$\\
 $1=9b$ mod 20 $let~ b =9$\\
-$1=11b$ mod 20 $let~ b =-9$\\
-$1=13b$ mod 20 $let~ b =-3$\\
-$1=17b$ mod 20 $let~ b =-7$\\
-$1=19b$ mod 20 $let~ b =-1$\\
+$1=11b$ mod 20 $let~ b =11$\\
+$1=13b$ mod 20 $let~ b =17$\\
+$1=17b$ mod 20 $let~ b =13$\\
+$1=19b$ mod 20 $let~ b =19$\\
 \clearpage
 %5d
 \item
@@ -427,8 +427,8 @@ $(26\times36)$ mod 55 $=(936)$ mod 55 $=(1)$ mod 55\hfill valid\\
 %5f
 \item
 $17x\equiv4$ mod 20\\
-$(-7)\times17x\equiv(-7)\times4$ mod 20\hfill inverse found in 5c\\
-$-119x\equiv-28$ mod 20\\
+$(13)\times17x\equiv(13)\times4$ mod 20\hfill inverse found in 5c\\
+$x\equiv52$ mod 20\\
 \\
 $x\equiv12$ mod 20\\
 $\forall k\in\mathbb{Z}~x=12+20k$\\
@@ -436,16 +436,16 @@ $\forall k\in\mathbb{Z}~x=12+20k$\\
 %5g
 \item
 $5x+3y\equiv0$ (mod 19)\\
-$y\equiv4+12x$ (mod 19)\\
-$5x+3y\equiv0$ (mod 19) $\rightarrow$ $3y\equiv-5x$ (mod 19)\\ 
+$y\equiv4+12x$ (mod 19)\\\\
+$5x+3y\equiv0$ (mod 19) $\rightarrow$ $3y\equiv-5x$ (mod 19)\\ \\
 $\rightarrow$ $(-6)\times3y\equiv(-6)\times-5x$ (mod 19)\\
 $\rightarrow$ $-18y\equiv30x$ (mod 19)\\
 $\rightarrow$ $y\equiv11x$ (mod 19)\\
 $11x\equiv4+12x$ (mod 19)\\
 $0\equiv4+x$ (mod 19)\\
 $-4\equiv x$ (mod 19)\\
-$x\equiv 15$ (mod 19)\\
-$y\equiv11(15)$ (mod 19)\\
+$x\equiv 15$ (mod 19)\\\\
+$y\equiv11(15)$ (mod 19)\hfill Substitute $x$\\
 $y\equiv165$ (mod 19)\\
 $y\equiv13$ (mod 19)\\
 \\
@@ -461,7 +461,7 @@ $y\equiv13$ (mod 19)\\
 Prove $\{1a,2a, ... ~(p-1)a\}$ where p is non-zero and $a\in\{1, 2 ...,~p-1\}$ is a set of distinct numbers.\\\\
 
 \textbf{Lemma: Distinct integers}\\
-Let's assume that there are two products of some $x,y\in\{1, 2 ...,~p-1\}$ and $a$ that are modularly congruent mod p.\\
+Let's assume that there are two products of some $x,y\in\{1, 2 ...,~p-1\}$ and $a$ such that they are modularly congruent for mod p.\\
 $xa\equiv ya$ mod p\\
 $x\equiv y$ mod p\hfill since $a$ is non-zero and co-prime to p\\\\
 We have a contradiction due to the fact that $x,y$ are always less than $p-1.$\\
@@ -520,7 +520,7 @@ Next place the smallest disk on the source needle.\\
 The second largest onto the destination needle.\\
 the smallest disk onto the destination needle.\\
 7 moves.\\\\
-From this we can see the strategy is place $n-1$ disks onto a non-destination needle and then to place the $n^{th}$ disk on the destination needle and then place $n-1$ on the destination needle. We need to continue this recursively until the base case is reached.\\
+From this we can see the strategy is to place $n-1$ disks onto a non-destination needle and then to place the $n^{th}$ disk on the destination needle and then place $n-1$ on the destination needle. We need to continue this recursively until the base case is reached.\\
 Since we are moving $n-1$ twice and $n=1$ once we have\\
 $F(n) = F(n-1) + F(1)+ F(n-1) = 2F(n-1) + F(1) = 2F(n-1) + 1$\\
 \\
