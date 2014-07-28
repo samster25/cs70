@@ -31,7 +31,7 @@ If we follow this pattern of initially starting from an odd degree node and walk
 \section*{Problem 2}
 \begin{enumerate}[(a)]
 \item
-It makes sense that we can use a directed graph for this since it is sort of like taking a path where you can only go to a node if the end of your current node has an overlap with the start of the next node. For this graph to be useful for us we construct with our nodes being 2-bit tuples and connect with directed edges that overlap of 1-bit from the end of one node to the start of another one. This makes sense since a 3-bit tuple is simply the overlap of two 2-bit ones. After creating the 4 2-bit nodes we connect them with directed edges covering every possible 1-bit overlap including self-loops. To construct the sequence, we simply have to perform an Eulerian Tour from any node. I chose the 00 node.\\\\
+It makes sense that we can use a directed graph for this since it is sort of like taking a path where you can only go to a node if the end of your current node has an overlap with the start of the next node. For this graph to be useful for us we construct with our nodes being 2-bit tuples and connect with directed edges that overlap of 1-bit from the end of one node to the start of another one. This makes sense since a 3-bit tuple is simply the overlap of two 2-bit ones. After creating the 4 2-bit nodes we connect them with directed edges covering every possible 1-bit overlap including self-loops. To construct the sequence, we simply have to perform an Eulerian Tour from any node. We know we can perform a tour due to the fact that every node has an equal amount of enterance and exit edges and the total amount of edges for each node is even. I choose the 00 node to start.\\\\1
 \includegraphics[scale=.7]{2a}
 \clearpage
 \item
@@ -75,11 +75,13 @@ $(x+1)^p = x + 1$ (mod $p$)\hfill Substitute Inductive Hypothesis\\
 \hfill$\square$
 \end{enumerate}
 \clearpage
+\section*{Problem 4}
 \begin{enumerate}[(a)]
 \item
 There are $13!$ ways to form the 13-bit string. Since 5 of the bits are 1 we can divide by $5!$ and since 8 of the bits are 0 we can also divide by $8!$.
-so\\\\ $ways = \frac{13!}{5!8!}$\\
+so\\\\ $ways = \frac{13!}{5!8!}$
 \item
+There are $2^{55}$ ways to make a 55 bit string due to the fact that each bit has 2 choices and there are 55 bits in total. Knowing this, Half of these contain more 0 than 1's. So the amount of 55 bit strings with more 1's than 0 is \\\\ways = $\frac{2^{55}}{2} = 2^{54}$
 \item
 There are 52 cards in a deck and we choose 13 of them so the answer would be 52 choose 13.\\\\ ${52\choose 13} = \frac{52!}{(52-13)!13!} = \frac{52!}{39!13!}$\\
 \item
@@ -87,7 +89,7 @@ There are 52 cards in a deck and 4 of them are aces so if we ignore them we only
 ${48\choose 13} = \frac{48!}{(48-13)!13!} = \frac{48!}{35!13!}$\\
 \item
 There are 4 aces and we choose all 4 of them so there is only 1 way to choose the aces. We now have 9 cards to choose from a deck of 48.\\\\
-${49\choose 9} = \frac{48!}{(52-9)!9!} = \frac{48!}{(43!9!)}$\\
+${48\choose 9} = \frac{48!}{(52-9)!9!} = \frac{48!}{(43!9!)}$\\
 \item
 We first choose 5 spades from the 13 in the deck and then multiple the amount of ways to get the 5 spades from 13 and then remove the spades from the deck. We then find the amount of ways to fill the rest of our hand with the remaining deck.\\\\
 ${13\choose5} = \frac{13!}{8!5!}$\\\\
@@ -96,6 +98,7 @@ $ways = {13\choose5}\times {39\choose8} = \frac{39!13!}{31!8!8!5!}$\\\\\
 \item
 There are 52 ways to pull a card out of a full deck. After pulling out 1 card, there are now 51 ways to pull out a card, and then 50 and so forth.\\
 So the amount of ways to order a deck is $52!$\\
+
 \item
 "KENTUCKY" has 8 letters, one of which is repeated once. So the amount of ways to order the word is $8!$ due to the fact that when you pull out a letter you have $n-1$ choices. Knowing the amount of ways to order the words and the fact that we have a repeated letter. The amount of anagrams we have is $\frac{8!}{2!}$ since it doesn't matter which "K" is in what place.\\
 \item

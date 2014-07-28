@@ -1,0 +1,166 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fullpage}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\title{CS 70, Summer 2014 --- Homework 5} % Put the correct homework number here.
+\author{Harsimran (Sammy) Sidhu, SID 23796591} % Put your name and student ID here.
+
+\begin{document}
+
+\maketitle
+
+Collaboraters: Chonyi Lama, Jenny Pushkarskaya
+
+Sources: 
+
+\section*{Problem 1} % Put the correct problem number here
+
+\begin{enumerate}[(a)]
+\item
+If we have two decks of 52 cards we have $104!$ ways to order if we ignore repeats. Since there are 2 decks, we have 2 of each card so we have to divide by $2!$ for every unique card since the order of the repeats don't matter.\\\\
+$\dfrac{104!}{(2!)^{52}} = \dfrac{104!}{2^{52}}$\\
+\item
+If we have a binary string that is of length 66. it must have 34 bits that is a "1" for it to have a majority of ones. So the amount of ways for the string to have more 1's than 0's is the amount of anagrams of a binary string with 34 1's and 32 0's. There are $66!$ ways to arrange the string and there are $(34!,32!)$ repeated strings so the amount of ways to get the string is\\\\
+$\dfrac{66!}{34!\times32!} = {66 \choose 34}$\\
+\item
+We have 8 balls and 24 bins. So for each ball we have 24 bins to place the ball in. So each ball will have 24 choices.\\
+$24^8$ ways
+\item
+If we place 1 ball into each bin we statisfy the requirement for each of the 5 bins having at least 1 ball. We now have 3 balls left. We can now place each one of these balls in any of the bins. So each ball has 5 choices.
+$5^3=125$ choices 
+\item
+We have 30 students which is 15 pairs. Lets first line up the 30 students. There are $30!$ ways to line them up. We then pair up Student 1 and 2, 3 and 4 and so forth. Since we don't care if student 1 is paired with 2 or if 2 is paired with 1. We divided by $2!$ for each pair. Since we also don't care the order of when the pairs were picked we also divide by $15!$.\\
+$\dfrac{30!}{15!\times 2^{15}}$ ways
+\end{enumerate}
+\clearpage
+
+\section*{Problem 2}
+\begin{enumerate}[(a)]
+\item
+if we have $p$ beads that could be at most $k$ colors with the string having more than 1 color that would mean that we have $k$ choices for each of the $p$ beads or $k^p$ and since we can't have the same color for all the string we have to substract $k$ ways for the string have all the same color.\\
+$k^p -k$ ways.
+\item
+From the problem we can see that every necklace is $p$ shifts from being identical to itself meaning that $(p-1)$ necklaces are equivalent to it. This can be said for all necklaces then. Every necklace has $(p-1)$ equivalent necklaces that can be shifted to obtain. This would mean that the amount of non-equivalent necklaces is just the total amount of ways to make a necklace divided by $p$ or \\\\
+$\dfrac{k^p-k}{p}$ non-equivalent necklaces.
+\item
+let $a=k$ or the amount of colors which can't be 0 since you can't have 0 colors in a necklace. We know that the amount of ways we can make a unique necklace is\\\\
+$\dfrac{k^p-k}{p}\Rightarrow k^p-k = p\times n$\\\\
+which shows that the amount of ways to make a unique necklace is divisible by $p$.
+If we take the modulo of both sides we get\\
+$k^p-k = p\times n$ mod $p$\\
+$k^p-k \equiv 0$ mod $p$\\
+$k^p \equiv k$ mod $p$\\
+$k^{p-1} \equiv 1$ mod $p$\\
+$a^{p-1} \equiv 1$ mod $p$\\
+
+\end{enumerate}
+\clearpage
+\section*{Problem 3}
+\begin{enumerate}[(a)]
+\item
+Let's say we have two groups, $A$ with $n$ people and $B$ with $m$ people and then we choose $a$ people from $A$ and $b$ from $B$. The amount of ways we do this is less than or equal to if we just combined $A$ and $B$ and chose $a+b$ people. If we pick $a+b$ people from $A$ and $B$ then for each choice everyone from $A$ and $B$ is considered giving us much more choices rather than choosing just from $A$ or just from $B$. 
+\item
+Let's have a bin $N$ with $n$ balls. Let's choose $a$ balls from $N$ and place them in a bin $A$. $N$ now has $n-a$ balls. After this we then choose $b-a$ balls from $N$ and place them in bin $B$. Bin $N$ now has $n-a-(b-a)$ or $n-b$ balls and Bin $B$ has $b-a$ balls.\\
+$N$: $n-b$ balls\\
+$A$: $a$ balls\\
+$B$: $b-a$ balls\\\\
+Let's also consider if bin $N$ has $n$ balls and then we choose $b$ balls from it and place it in $B$. $N$ now has $n-b$ balls and $B$ has $b$ balls. Then from $B$ we choose $a$ balls and place it in $A$. $B$ now has $b-a$ balls and $A$ has $a$ balls.\\
+$N$: $n-b$ balls\\
+$A$: $a$ balls\\
+$B$: $b-a$ balls\\
+These are equivalent arguments
+\item
+Let's say we have a village of hunters and gatherers with $n$ people. We need to seperate the village into hunters and gatherers and each one needs a leader. First let's choose $a$ people from the village to be gatherers. ${n\choose a}$ We now have $a$ gatherers and $n-a$ hunters. We now choose 1 from each group to be the leader of their respective groups. ${a\choose 1}{n-a \choose 1}= a(n-a)$\\ Total ways: $a(n-a){n\choose a}$\\
+This would be equivalent to if we chose a hunting leader from $n$ people ${n \choose 1}$and then chose a gathering leader from $n-1$ people. ${n-1\choose 1}$ We then choose the rest of the gathering group that aren't leaders $(a-1)$ from $n-2$ people. ${n-2\choose a-1}$\\
+Total Ways: ${n \choose 1}{n-1 \choose 1}{n-2\choose a-1} = n(n-1){n-2\choose a-1}$\\\\
+\end{enumerate}
+\clearpage
+
+\section*{Problem 4}
+\begin{enumerate}[(a)]
+\item
+${2n\choose2} = 2{n\choose 2} + n^2$\\\\
+$\dfrac{2n!}{(2n-2!)2!}=$
+$\dfrac{2n\times(2n-1)}{2!}=$
+$\dfrac{4n^2-2n}{2!}=$
+$\dfrac{2n^2 + 2n^2-2n}{2!}=$
+$\dfrac{2n^2-2n}{2!} + n^2=$\\\\
+$2\times\dfrac{n^2-n}{2!} + n^2=$
+$2\times\dfrac{n(n-1)}{2!} + n^2=$
+$2\times\dfrac{n!}{(n-2)!2!} + n^2= 2{n\choose 2} + n^2$
+\item
+Let's say we have a group $A$ with $2n$ people in a line and we want to choose 1 pair from the group. This would be ${2n\choose 2}$. Now let's say we spilt the line in half so each side of the line would have $n$ people. We can now choose 2 people from the left side of the line. ${n \choose 2}$ 2 people from the right side $n\choose 2$ or one from each side. ${n\choose1}{n\choose 1}$. Now let's add up all these possibilities\\
+ ${n \choose 2}+ {n \choose 2} + {n\choose1}{n\choose 1} = 2{n \choose 2} + n^2$\\
+ So the amount of ways you could select 2 people from $2n$ is equivalent to $2{n \choose 2} + n^2$
+\end{enumerate}
+\clearpage
+\section*{Problem 5}
+Lets first calculate the amount of ways we can get 4 distinct numbers on the dice.\\
+Out of 6 numbers lets choose 4 to be the distinct numbers, hence ${6\choose 4}$. So we can either have the 2 repeating numbers to be different numbers or the same giving us 2 2-of-a-kinds or a single 3-of-a-kind. The amount of ways we can have 6 numbers in which two are distinct pairs is ${4 \choose 2}\frac{6!}{2!2!}$. The amount of ways we can have 6 numbers in which there is one three-of-a-kind is ${4\choose 1}\frac{6!}{3!}$. Since we can have either of theses we add them up to one another.\\\\
+amount of ways to have exactly 4 numbers = ${6\choose 4}\left( 
+{4 \choose 2}\frac{6!}{2!2!} + 
+{4\choose 1}\frac{6!}{3!} 
+\right) = 15\times (6\times180 + 4\times 120)\\\\
+= \dfrac{23400}{6^6} = 50.15\%$\\\\
+I would play this game. In the long run I would win more money due to the fact that the win chance is greater than 50\%.
+
+\clearpage
+\section*{Problem 6}
+\begin{enumerate}[(a)]
+\item
+~\\
+Box 1: $P = 1/4$\\
+Red, Blue $= (1/4)\times(2/3)\times(1/2) = 1/12$\\
+Red, Red $=(1/4)\times(2/3)\times(1/2) = 1/12$\\
+Blue, Blue $=(1/4)\times(1/3)\times(0/2) = 0$\\
+Blue, Red $=(1/4)\times(1/3)\times(2/2) = 1/12$\\
+\\
+Box 2: $P=3/4$\\
+Red, Blue $= (3/4)\times(1/3)\times(2/3) = 1/4$\\
+Red, Red $= (3/4)\times(1/3)\times(0/2) = 0$\\
+Blue, Blue $= (3/4)\times(2/3)\times(1/2) = 1/4$\\
+Blue, Red $= (3/4)\times(2/3)\times(1/2) = 1/4$\\
+\item
+P[balls have different colors] = P[Red,Blue] + P[Blue,Red]\\
+P[balls have different colors] = [1/12 + 1/4] + [1/12 + 1/4]\\
+P[balls have different colors] = 8/12 = 2/3
+\end{enumerate}
+\clearpage
+\section*{Problem 7}
+If treat the 3 discrete math books as 1 unit we then have 10 books with 4 about COBOL and 5 about underwater basket weaving. So the amount of ways to arrange the books with the discrete math books always together is\\\\
+$\dfrac{10!}{5!\times 4!} = 1260$ ways\\\\
+And the amount of ways to arrange the books normally is \\\\
+$\dfrac{12!}{3!4!5!}$ so the probability is\\\\
+
+
+$\dfrac{\frac{10!}{5!4!}}{\frac{12!}{3!4!5!}} = \dfrac{3!}{12\times11} = \dfrac{1}{22}=4.54 \%$
+
+\clearpage
+
+\section*{Problem 8}
+\begin{enumerate}[(a)]
+\item
+If you roll a dice and then another dice, the probability to roll that the same number is $1/6$.
+\item
+The possiblities for dice being rolled and a sum of 4 or less if produced is\\
+\textbf{(1,1)} (1,2) (1,3)\\
+(2,1) \textbf{(2,2)}\\
+(3,1)\\
+so the probabilty for doubles such that a sum of 4 or less was produced is (2/6) = (1/3).
+\item
+if our two dice land on different numbers then it had to have been 6 ways for the first dice to land and 5 ways for the second dice. So there is 30 ways the dice could have made different numbers. Next we calculate the number of ways 6 could have appeared. If the first dice resulted in a 6 then there are 5 ways. If the second dice was a 6 then there are also 5 ways. Since the events are independant the total ways that we could have a 6 is 10. So the probabilty of 6 appearing when we have two different dice outcomes is 10/30 or 1/3. 
+\end{enumerate}
+\clearpage
+\section*{Problem 9}
+\begin{enumerate}[(a)]
+\item
+After we add the \$5 bill to the bag and shake it up, we now assume a randomized bill pull from the bag so the probabilities of the mystery bill and the pure \$5 bill is 1/2 each. If we pulled a \$5 bag from the bag then we either pulled the mystery bill and it was actually a \$5 bill or we pulled the \$5 bill. If we pulled the mystery will with a probabity of 1/2 and then it turned out to be a 5 then the second student has 1/1 chance to pull out a \$5 bill. So in this case the chance is $1/2\times 1/1 = 1/2$\\
+Now we consider the case if we pulled the actual \$5 bill. The chance of this is 1/2 which would make our second student pull out the mystery bill with a chance of 1/1. This has a probabilty of 1/3 of being a 5. so the chance is $(1/2 \times 1/3 = 1/6)$ of this happening.\\\\
+The sum of the probabilties now leads us to add $1/2 + 1/6 = 2/3$
+\item
+We have a total of 6 sides, 3 are heads and 3 are tails and we have a 50-50 chance of pulling either. So when we find out we have heads there are 1 in 2 ways this can happen. 1 way is that we got either of the 2 sides of the HH coin each with a probabilty of 1/3 giving us a total of 2/3 of getting the HH coin. The other way is that we got the Head side of the normal coin with a probability of 1/3. So if we got the HH coin with a probability of 2/3 then our chance of getting another Heads is 1/1. So the chance of this is 2/3. If we got the heads side of the normal coin then our probabilty for another heads is 0.\\
+The total probability of getting another heads is 2/3.
+\end{enumerate}
+\end{document}
