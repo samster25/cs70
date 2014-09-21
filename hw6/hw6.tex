@@ -1,0 +1,113 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fullpage}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\title{CS 70, Summer 2014 --- Homework 6} % Put the correct homework number here.
+\author{Harsimran (Sammy) Sidhu, SID 23796591} % Put your name and student ID here.
+
+\begin{document}
+
+\maketitle
+
+Collaboraters: Chonyi Lama, Jenny Pushkarskaya, Ryan Riddle
+
+Sources: 
+
+\section*{Problem 1} % Put the correct problem number here
+Pr[$D$] = 0.001\\
+Pr[$H$] =  Pr[$\bar{D}$] = 0.999\\
+Pr[$A|D$] = 0.95\\
+Pr[$B|H$] = 0.85\\
+Pr[$A|H$] = Pr[$\bar{B}|H$] = $1-0.85 = 0.15$\\
+Pr[$B|D$] = Pr[$\bar{A}|D$] = $1-0.95 = 0.05$
+\begin{enumerate}[(a)]
+\item
+Pr[$D|A$] = $\dfrac{Pr[A\wedge D]}{Pr[A]} =\dfrac{Pr[A|D]~Pr[D]}{Pr[A]}$\\\\
+$Pr[A] = Pr[D\wedge A] + Pr[\Bar{D}\wedge A] = Pr[A|D]Pr[D] + Pr[A|\bar{D}](1-Pr[D])$\\\\
+Pr[$D|A$] $=\dfrac{Pr[A|D]~Pr[D]}{Pr[A|D]Pr[D] + Pr[A|H]Pr[H]}$\\\\\\
+Pr[$D|A$] $=\dfrac{0.95\times0.001}{0.95\times0.001 + 0.15\times0.999} = 0.0063 = 0.63\%$\\\\
+\item
+Pr[$H|B$] = $\dfrac{Pr[B\wedge H]}{Pr[B]} =\dfrac{Pr[B|H]~Pr[H]}{Pr[B]}$\\\\
+$Pr[B] = Pr[H\wedge B] + Pr[\Bar{H}\wedge B] = Pr[B|H]Pr[H] + Pr[B|\bar{H}](1-Pr[H])$\\\\
+$Pr[B] = Pr[B|H]Pr[H] + Pr[B|D]Pr[D]$\\\\
+Pr[$H|B$] $=\dfrac{Pr[B|H]~Pr[H]}{Pr[B|H]Pr[H] + Pr[B|D]Pr[D]}$\\\\
+Pr[$H|B$] $=\dfrac{0.85\times0.999}{0.85\times0.999 + 0.05\times0.001} = .99994 = 99.994 \%$\\\\
+\item
+Assume Pr[$D|A$] = Pr[$H|B$]\\\\
+Pr[$D|A$] $=\dfrac{Pr[A|D]~Pr[D]}{Pr[A|D]Pr[D] + Pr[A|H]Pr[H]}$\\\\\\
+Pr[$D|A$] $=\dfrac{Pr[A|D]~Pr[D]}{Pr[A|D]Pr[D] + (1- Pr[A|D])Pr[H]}$\\\\\\
+Pr[$D|A$] $=\dfrac{Pr[A|D]~Pr[D]}{Pr[A|D]Pr[D] + Pr[H] - Pr[A|D]Pr[H]}$\\\\\\
+Pr[$D|A$] $=\dfrac{Pr[A|D]~Pr[D]}{Pr[A|D](Pr[D] - Pr[H]) + Pr[H]}$\\\\\\
+Pr[$D|A$]$(Pr[A|D](Pr[D] - Pr[H]) + Pr[H]) = Pr[A|D]~Pr[D]$\\\\\\
+Pr[$D|A$]$Pr[A|D](Pr[D] - Pr[H]) = Pr[A|D]~Pr[D] - Pr[D|A]Pr[H]$\\\\\\
+Pr[$D|A$]$Pr[A|D](Pr[D] - Pr[H])  -Pr[A|D]~Pr[D] =  - Pr[D|A]Pr[H]$\\\\\\
+Pr[$D|A$]$Pr[A|D](Pr[D] - Pr[H] - \dfrac{Pr[D]}{Pr[D|A]})   =  - Pr[D|A]Pr[H]$\\\\\\
+$Pr[A|D](Pr[D] - Pr[H] - \dfrac{Pr[D]}{Pr[D|A]})   =  -Pr[H]$\\\\\\
+$Pr[A|D]   =  -\dfrac{Pr[H]}{(Pr[D] - Pr[H] - \dfrac{Pr[D]}{Pr[D|A]})}
+=-\dfrac{0.999}{(0.001 - 0.999 - \dfrac{0.001}{0.9})}$\\\\\\
+$Pr[A|D] = 0.999889$
+
+\end{enumerate}
+\clearpage
+\section*{Problem 2} % Put the correct problem number here
+
+Let's first calculate the probability that you pull out two socks that don't have holes in them. So you have ${10\choose 2}$ choices for choosing two socks. From the 4 socks that don't have holes we choose 2 so that amount of ways we can get two non-hole socks is ${4\choose 2}$. So the probability to get two non-hole socks is $\dfrac{{4\choose2}}{{10\choose 2}} = \dfrac{6}{45} = \dfrac{2}{15}$ \\
+Now we can use the binomial probability equation to solve for getting the probability of getting exactly 4 occurances of non-hole socks.\\\\
+
+$P={n\choose r}p^r(1-p)^{n-r}$\\\\
+$P={5\choose 4}(\frac{2}{15})^4(1-\frac{2}{15})^{5-4}$\\\\
+$P=5(\frac{2}{15})^4(\frac{13}{15}) = 5\times \dfrac{16\times13}{15^{5}} = \dfrac{1040}{15^5} = 0.001369 = 0.139\%$\\\\
+\clearpage
+\section*{Problem 3}
+\begin{enumerate}[(a)]
+\item
+G: 		1/2\\
+BG: 	1/4\\
+BBG: 	1/8\\
+BBBG: 	1/16\\
+BBBBG: 	1/32\\
+BBBBB: 	1/32\\
+\item
+$
+G:\\
+~~~~0: 1/32\\
+~~~~1: 31/32\\
+B:\\
+~~~~0: 1/2\\
+~~~~1: 1/4\\
+~~~~2: 1/8\\
+~~~~3: 1/16\\
+~~~~4: 1/32\\
+~~~~5: 1/32\\
+$
+\item
+$E(G) = 1(1/2+ 1/4 + 1/8 + 1/16 + 1/32) = 31/32$\\\\
+$E(B) = 1\times \frac{1}{4} + 2\times\frac{1}{8}+ 3\times\frac{1}{16}+ 4\times\frac{1}{32} + 5\times \frac{1}{32}$\\\\
+$E(B) = \frac{1}{4} + \frac{1}{4}+ \frac{3}{16}+ \frac{1}{8} + \frac{5}{32} = 31/32$\\
+
+\end{enumerate}
+\clearpage
+\section*{Problem 4}
+\begin{enumerate}[(a)]
+\item
+Let's first find the probability if the word book begins on the first letter that is typed out. The probability of the first letter being "b" is 1/26 and the probability of the second letter being "o" is 1/26 and so forth. So the probability of the first 4 letters starting at index 1 is "book" is $\dfrac{1}{26^4}$. We actually can start from any index as long as the word can be completed so the range is from 1 to $n-3$ where n is the amount of characters being typed. Using linearity of expectation we can sum of the expectations from starting from every possible index.\\\\
+$(1000000 - 3)\times \dfrac{1}{26^4} = \dfrac{999997}{456976} = 2.189$ times
+\item
+Let's say we have a building with $n$ floors with $m$ people in the elevator. The probability of a person not getting off the first floor is $(\frac{n-1}{n})$ and the probability that all $m$ people don't get off at the first floor is $(\frac{n-1}{n})^m$. Using linearity of expectation we can say that everyone not getting off an $i^{th}$  floor is still $(\frac{n-1}{n})^m$. So we can then sum up every floor that people don't get off to solve for the expected value of floors that the elevator doesn't stop at. We then get\\\\
+ $({\frac{n-1}{n})^m}_{1}$ + $({\frac{n-1}{n})^m}_{2}$ + .. + $({\frac{n-1}{n})^m}_{n}$ = $n({\frac{n-1}{n})^m}$\\\\
+This is expected value of floors we don't stop at so to get the expected value of floors we do stop at we subtract this value from the total number of floors.\\
+$E = n -n({\frac{n-1}{n})^m} = n(1 -({\frac{n-1}{n})^m})$\\
+\item
+We can see that we only have a run if the current flip is different than the last flip. For example if we flip a T and it was a H last time we would have two runs, one more than the last count.\\
+P[HH] = $pp$\\
+P[HT] = $p(1-p)$\\
+P[TH] = $(1-p)p$\\
+P[TT] = $(1-p)(1-p)$\\
+From this we see that HH and TT don't add to our run count but HT and TH do since there is a new face rather than the same one as the last flip.\\
+Since we always have a run if we have a single flip we can always expect atleast 1 run. So for a single pair of flips the expected value is $p(1-p) + p(1-p) = 2p(1-p)$ Using linearity of expectation and knowing the expected value for each pair is $2p(1-p)$ we can state the expected value for the amount of runs. Since the first flip has to be a run we have $n-1$ flips left, each one of these flips has a expected value of $2p(1-p)$ so the total expected value is $1 + (n-1)2p(1-p) = 1+ 2(n-1)p(1-p)$
+\item
+Each game of A has a win probability of 1/3 and a win value of 3 so the expected value of a single game is just $1/3 \times 3 = 1$ since we play 10 games the expected value of this is simply $10\times 1 = 10$. The win probability of game B is 1/5 and the win value is 4 tickets. Therefore the expected value of each game is $1/5 \times 4 = 4/5$. We play 20 games so the expected value of this is $20 \times 4/5 = 16$ tickets. We did these expected values using the linearity of expectation by summing the indiviual games up. So the total is now 10 + 16 = 26 tickets.
+\end{enumerate}
+\end{document}

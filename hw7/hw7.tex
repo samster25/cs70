@@ -1,0 +1,158 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fullpage}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\title{CS 70, Summer 2014 --- Homework 7} % Put the correct homework number here.
+\author{Harsimran (Sammy) Sidhu, SID 23796591} % Put your name and student ID here.
+
+\begin{document}
+
+\maketitle
+
+Collaboraters: Chonyi Lama, Jenny Pushkarskaya
+
+Sources: 
+
+\section*{Problem 1} % Put the correct problem number here
+Bond has three choices each with a probability of 1/3. If he goes out the door, it takes him no time to escape. The route with the AC duct wiill take him 2 hours and he will end up where he started. If he goes into the sewer pipe it will take 5 hours and he will end up in the same place again. So the expected value is the expected value of each times the probabilty of each happening.\\\\
+$E(X) = \frac{1}{3}(0) + \frac{1}{3}(2 + E(x)) + \frac{1}{3}(5 + E(x))$\\\\
+$E(X) =\frac{2}{3} + \frac{1}{3}E(x) + \frac{5}{3}+ \frac{1}{3}E(x)$\\\\
+$E(X) =\frac{7}{3} + \frac{2}{3}E(x) $\\\\
+$\frac{1}{3}E(X) =\frac{7}{3}$\\\\
+$E(X) = 7$\\\\
+\clearpage
+\section*{Problem 2}
+\begin{enumerate}[(a)]
+\item
+$P[X=i]= {n\choose i}p^i(1-p)^{n-i}$ \\
+$P[X=3]= {20\choose 3}(1/6)^{3}(5/6)^{20-3}$ \\
+$P[X=3]= {20\choose 3}(1/6)^{3}(5/6)^{17}$ 
+\item
+$P[X\leq k]= \sum\limits^{k}_{i=0} {n\choose i} p^i(1-p)^{n-i}$ \\\\
+$P[X\leq 3]= \sum\limits^{3}_{i=0} {20\choose i} (1/6)^i(5/6)^{20-i}$ \\
+$P[X\leq 3]= \sum\limits^{3}_{i=0} {20\choose i} (1/6)^i(5/6)^{20-i}$ \\
+$P[X\leq 3]= {20\choose 0} (1/6)^0(5/6)^{20} + {20\choose 1} (1/6)^1(5/6)^{20-1} + {20\choose 2} (1/6)^2(5/6)^{20-2} + {20\choose 3} (1/6)^3(5/6)^{20-3}$ \\\\
+$P[X\leq 3]= ({5\over6})^{20} + 20({1\over6})^1({5\over6})^{19} + {20\choose 2} ({1\over6})^2({5\over6})^{18} + {20\choose 3} ({1\over6})^3({5\over6})^{17}$ \\
+\item
+The probabilty we don't roll a 6 on the first try is ${1\over 6}$ an ditto for the second and third. so the probabilty we roll atleast 4 dice.\\
+$P[X > 3]= (1-p)(1-p)(1-p)$\\\\
+$P[X > 3]= (5/6)^3$\\\\
+
+
+\end{enumerate}
+\clearpage
+\section*{Problem 3}
+\begin{enumerate}[(a)]
+\item
+$P[X=i]=\dfrac{\lambda^i}{i!}e^{-\lambda}$\\\\
+$P[X=7]=\dfrac{(20)^7}{7!}e^{-20}$\\
+\item
+$P[X=i]=\dfrac{\lambda^i}{i!}e^{-\lambda}$\\\\
+$P[X<2]=\dfrac{(2)^1}{1!}e^{-2} + \dfrac{(2)^0}{0!}e^{-2}= \dfrac{2}{e^2} + \dfrac{1}{e^2} = \dfrac{3}{e^2}$\\
+\item
+$\lambda = 2\times 5.7 = 11.4$\\\\
+
+$P[X<3]=\dfrac{(11.4)^2}{2!}e^{-11.4} + \dfrac{(11.4)^1}{1!}e^{-11.4} + \dfrac{(11.4)^0}{0!}e^{-11.4}$\\\\
+$P[X<3]=\dfrac{(11.4)^2}{2!}e^{-11.4} + 11.4e^{-11.4} + e^{-11.4}$\\\\
+$P[X>2] = 1 - P[X<3] = 1 - \left(\dfrac{(11.4)^2}{2!}e^{-11.4} + 11.4e^{-11.4} + e^{-11.4}\right)$
+\end{enumerate}
+\clearpage
+\section*{Problem 4}
+\begin{enumerate}[(a)]
+\item
+Let's say we have a building with $n$ floors with $m$ people in the elevator. The probability of a person not getting off the first floor is $(\frac{n-1}{n})$ and the probability that all $m$ people don't get off at the first floor is $(\frac{n-1}{n})^m$. Using linearity of expectation we can say that everyone not getting off an $i^{th}$  floor is still $(\frac{n-1}{n})^m$.\\\\
+$p = (\frac{n-1}{n})^m$\\\\
+The expected value of the floors we don't stop at is $np$ which is $n(\frac{n-1}{n})^m$\\\\
+$E(X) = n(\frac{n-1}{n})^m$\\\\
+$var(X) = E(X^2) -E(X)^2$\\
+$var(X) = \sum\limits_{i=1}^nE({X_i}^2)  + \sum\limits_{i \neq j}^nE({X_iX_j})-E(X)^2$\\\\
+Due to the fact that $X_i$ is always 1 or 0 we can simplify ${X_i}^2$ to $X_i$.\\
+$var(X) = \sum\limits_{i=1}^nE({X_i})  + \sum\limits_{i \neq j}^nE({X_iX_j})-E(X)^2$\\\\
+$var(X) = \sum\limits_{i=1}^nE({X_i})  + \sum\limits_{i \neq j}^np_1p_2-E(X)^2$\\\\
+$var(X) = \sum\limits_{i=1}^nE({X_i})  + \sum\limits_{i \neq j}^np_1p_2-E(X)^2$\\\\
+In this case $p_1$ is the probability that we don't pick some floor. $p_2$ is the probability that we don't pick the floor from $p_1$ and some other floor.\\
+Therefore $p_1$ is simply $(\frac{n-1}{n})^m$ and $p_2$ is $(\frac{n-2}{n-1})^m$\\\\
+$var(X) = np_1  + n(n-1)p_1p_2- (np_1)^2$\\\\
+$var(X) = n(\frac{n-1}{n})^m  + n(n-1)((\frac{n-1}{n})^m)((\frac{n-2}{n-1})^m)- (n(\frac{n-1}{n})^m)^2$\\\\
+\clearpage
+\item
+If the three friends have their own sequence of books the probability that the first book is the same for all 3 is simply $1 \over n^2$ due to the fact that we don't care what book it is except that it is the same for all three. The second book would also have the same probability and so on and so forth.\\
+$var(X) = E(X^2) -E(X)^2$\\
+$var(X) = \sum\limits_{i=1}^nE({X_i}^2)  + \sum\limits_{i \neq j}^nE({X_iX_j})-E(X)^2$\\\\
+Due to the fact that $X_i$ is always 1 or 0 we can simplify ${X_i}^2$ to $X_i$.\\
+$var(X) = \sum\limits_{i=1}^nE({X_i})  + \sum\limits_{i \neq j}^nE({X_iX_j})-E(X)^2$\\\\
+$var(X) = \sum\limits_{i=1}^nE({X_i})  + \sum\limits_{i \neq j}^np_1p_2-E(X)^2$\\\\
+$p_1$ is the probability that the same book is chosen for that index and $p_2$ is the probabilty that the same book was chosen again but not the same book as $p_1$.\\
+$p_1$ = $\dfrac{1}{n^2}$\\
+$p_2 = \dfrac{1}{(n-1)^2}$\\
+$var(X) = n\dfrac{1}{n^2}  + n(n-1)\dfrac{1}{n^2}\dfrac{1}{(n-1)^2}-(\dfrac{1}{n})^2$\\\\
+$var(X) = \dfrac{1}{n}  + \dfrac{1}{n(n-1)}-\dfrac{1}{n^2}$\\\\
+\end{enumerate}
+\clearpage
+\section*{Problem 5}
+From the notes we know that
+$Var(X) = E(X^2)- E(X)^2 = \sigma^2$\\
+Since the variance is the standard deviation squared so it must be a positive value.
+Therefore $E(X^2)$ must be equal in which the variance is 0 or $E(X^2)$ must be larger which would cause the variance would be larger than 0 which it only can be.\\
+$E(X^2) \geq E(X)^2$ \\
+If a random variable is constant then it can only have 1 value. Therefore the variablility must be 0. Using the equation we see that $E(X^2)- E(X)^2 = 0$ which can be arraged to $E(X^2) = E(X)^2$
+\clearpage
+\section*{Problem 6}
+\begin{enumerate}[(a)]
+\item
+There is a total 7 questions and the mean for each question is 5 points. Therefore the mean for the total will be $7\times 5 = 35$ points.
+\item
+$P[X\geq \alpha] = \dfrac{E(X)}{\alpha}$\\\\
+$P[X\geq (60)] = \dfrac{E(X)}{60} = \dfrac{35}{60} = \dfrac{7}{12}$\\
+\item
+Var(X) = $var(3x)+ var(4x) = 3^2var(x) + 4^2var(x) = 3^2(1) + 4^2(1) = 25$\\
+\item
+$P[|X-\mu|\geq \alpha] \leq \dfrac{Var(X)}{\alpha^2}$\\\\
+$P[|X-35|\geq (60-35)] \leq \dfrac{25}{(60-35)^2}$\\\\
+$P[|X-35|\geq 25] \leq \dfrac{25}{25^2} = \dfrac{1}{25}$\\
+\end{enumerate}
+\clearpage
+\section*{Problem 7}
+\begin{enumerate}[(a)]
+\item
+$n\geq \dfrac{\sigma^2}{\epsilon^2\delta}$\\\\
+$n\delta\geq \dfrac{\sigma^2}{\epsilon^2}$\\\\
+$\delta\geq \dfrac{\sigma^2}{n\epsilon^2}$\\\\
+$\delta\geq \dfrac{10}{1000\times(.5)^2}$\\\\
+$\delta\geq \dfrac{1}{25} = .04$\\\\
+So we are 96\% confident.
+\item
+$n\geq \dfrac{\sigma^2}{\epsilon^2\delta}$\\\\
+$n\geq \dfrac{10}{2^2\times(0.02)}$\\\\
+$n\geq \dfrac{250}{2} = 125$\\
+\item
+$n\geq \dfrac{\sigma^2}{\epsilon^2\delta}$\\\\
+$\epsilon^2\geq \dfrac{\sigma^2}{n\delta}$\\\\
+$\epsilon\geq \sqrt{\dfrac{\sigma^2}{n\delta}}$\\\\
+$\epsilon\geq \sqrt{\dfrac{10}{2500\times.1}}$\\\\
+$\epsilon\geq \sqrt{\dfrac{1}{25}}$\\\\
+$\epsilon\geq \dfrac{1}{5}$\\\\
+
+\end{enumerate}
+\clearpage
+\section*{Problem 8}
+\begin{enumerate}[(a)]
+\item
+$E(X) = \sum\limits_{i=1}^{n}(E(X_i)P[X=i])$\\\\
+$E(X) = \sum\limits_{i=1}^{n}(E(X_i)(1-p)^{i-1}p$\\\\
+$E({1\over X}) = \sum\limits_{i=1}^{n}(E({1\over X_i})(1-p)^{i-1}p$\\\\
+$E({1\over X}) = p + \sum\limits_{i=2}^{n}(E({1\over X_i})(1-p)^{i-1}p$\\\\
+Since the first term itself can be $p$ the rest of the series would over estimate the value $p$ therefore it is a bad estimator.\\
+\item
+Lets say we have $n$ i.i.d. samples. These values can hold a value of 1 or 0. $Y$ is the fraction of samples that equal 1. Using the expected value for each $X_i$ we can see it's $p$. so each $X_i$ has a value expected value of $p$ and we have $n$ terms so the total sum is $np$. The fraction is then \\\\$\dfrac{np}{n} = p$ 
+\end{enumerate}
+\clearpage
+
+\section*{Problem 9}
+$Pr[D] = Pr[D|A]P[A] + Pr[D|B]Pr[B] + Pr[D|C]Pr[C]$\\\\
+$Pr[W|D] = \dfrac{Pr[W\wedge D]}{P[D]} = \dfrac{Pr[D|W]P[W]}{P[D]}$\\\\
+$Pr[D] = (1/3)(0.4\times0.6^3) + (1/3)(.5^4) + (1/3)(0.6\times0.4^3)$\\\\
+$Pr[W|D] = \dfrac{0.4\times0.6^3\times(1/3)}{(1/3)(0.4\times0.6^3) + (1/3)(.5^4) + (1/3)(0.6\times0.4^3)} = .46$\\\\
+\end{document}

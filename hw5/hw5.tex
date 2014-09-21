@@ -22,11 +22,17 @@ Sources:
 If we have two decks of 52 cards we have $104!$ ways to order if we ignore repeats. Since there are 2 decks, we have 2 of each card so we have to divide by $2!$ for every unique card since the order of the repeats don't matter.\\\\
 $\dfrac{104!}{(2!)^{52}} = \dfrac{104!}{2^{52}}$\\
 \item
-If we have a binary string that is of length 66. it must have 34 bits that is a "1" for it to have a majority of ones. So the amount of ways for the string to have more 1's than 0's is the amount of anagrams of a binary string with 34 1's and 32 0's. There are $66!$ ways to arrange the string and there are $(34!,32!)$ repeated strings so the amount of ways to get the string is\\\\
-$\dfrac{66!}{34!\times32!} = {66 \choose 34}$\\
+If we have a binary string that is of length 66. it must have 34 bits that is a "1" for it to have a majority of ones. So what we can do is find all the ways to set up the string and substract the ones that have an equal amount of 0's and 1's. Then we can divide by 2 because half would be majority 0's.\\
+The amount of equal bit strings would have 33 o's and 33 1's. so ${66\choose 33}$ \\
+$\dfrac{2^{66} - {66\choose 33}}{2}$
 \item
 We have 8 balls and 24 bins. So for each ball we have 24 bins to place the ball in. So each ball will have 24 choices.\\
 $24^8$ ways
+\item
+We can use the star and bars method. There would be 23 bars and 8 stars. So we would have
+${(23+8)!}$ ways to arrange the string and we would have 23 and 8 repeats of bars and stars. So we have\\\\
+$\dfrac{31!}{23!\times8!} = {31\choose 8}$
+\clearpage
 \item
 If we place 1 ball into each bin we statisfy the requirement for each of the 5 bins having at least 1 ball. We now have 3 balls left. We can now place each one of these balls in any of the bins. So each ball has 5 choices.
 $5^3=125$ choices 
@@ -156,9 +162,11 @@ if our two dice land on different numbers then it had to have been 6 ways for th
 \section*{Problem 9}
 \begin{enumerate}[(a)]
 \item
-After we add the \$5 bill to the bag and shake it up, we now assume a randomized bill pull from the bag so the probabilities of the mystery bill and the pure \$5 bill is 1/2 each. If we pulled a \$5 bag from the bag then we either pulled the mystery bill and it was actually a \$5 bill or we pulled the \$5 bill. If we pulled the mystery will with a probabity of 1/2 and then it turned out to be a 5 then the second student has 1/1 chance to pull out a \$5 bill. So in this case the chance is $1/2\times 1/1 = 1/2$\\
-Now we consider the case if we pulled the actual \$5 bill. The chance of this is 1/2 which would make our second student pull out the mystery bill with a chance of 1/1. This has a probabilty of 1/3 of being a 5. so the chance is $(1/2 \times 1/3 = 1/6)$ of this happening.\\\\
-The sum of the probabilties now leads us to add $1/2 + 1/6 = 2/3$
+After we add the \$5 bill to the bag and shake it up, we now assume a randomized bill pull. We know that the probability of both of the bills being a 5 is 1/3 due to the fact that we know that one of the bills is a 5.\\
+The probabilty that we pull out a 5 for our first draw is the probabilty of us pulling a bill times the probabilty of it being a 5.\\\\
+$P(First~5) = 1/2\times1/1 + 1/2\times1/3 = 2/3$\\
+$P(Both~5) = 1/3$\\
+$P(Second~5 ~|~First~5) = \dfrac{P(Both~5)}{P(First~5)} = \dfrac{1/3}{2/3} = 1/2$\\\\
 \item
 We have a total of 6 sides, 3 are heads and 3 are tails and we have a 50-50 chance of pulling either. So when we find out we have heads there are 1 in 2 ways this can happen. 1 way is that we got either of the 2 sides of the HH coin each with a probabilty of 1/3 giving us a total of 2/3 of getting the HH coin. The other way is that we got the Head side of the normal coin with a probability of 1/3. So if we got the HH coin with a probability of 2/3 then our chance of getting another Heads is 1/1. So the chance of this is 2/3. If we got the heads side of the normal coin then our probabilty for another heads is 0.\\
 The total probability of getting another heads is 2/3.
